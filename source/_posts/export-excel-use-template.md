@@ -117,6 +117,8 @@ sheet和sharedStrings是存储内容的关键文件，也是需要修改的地�
 `#`号中间的公式参考Freemarker语法
 ![转化成公式](http://odwjyz4z6.bkt.clouddn.com/icourt/wechat/Jietu20180302-163914.jpg)
 
+------------------
+
 ### 导出效果
 ![导出后效果](http://odwjyz4z6.bkt.clouddn.com/icourt/wechat/Jietu20180302-164141.jpg)
 
