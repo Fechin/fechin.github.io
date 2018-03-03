@@ -6,13 +6,6 @@ mp3: http://oybheyjxt.bkt.clouddn.com/Jam%20-%20%E4%B8%83%E6%9C%88%E4%B8%8A.mp3
 cover: http://odwjyz4z6.bkt.clouddn.com/CotOTsNUAAENHGa.jpg
 ---
 
-
-> 工欲善其事，必先利其器
-
-
-----------
-
-
 ### tldr（命令手册）
 作为一个开发人员，会时常用到终端命令，最让人头疼的是记不住繁琐的参数。用谷哥度娘检索效率低下；通过`man`查看帮助，超长文章不易阅读。
 
@@ -50,7 +43,10 @@ Often combined with a compression method, such as gzip or bzip.
     tar tvf source.tar
 ```
 
-> 小提示：支持在进20中语言环境下运行，通过`tldr --update`更新本地命令库。
+小提示：支持在进20中语言环境下运行，通过`tldr --update`更新本地命令库。
+
+-----------
+
 
 ### tree（树形目录）
 
@@ -75,8 +71,9 @@ fechinwork in ~/work/script/nginx2mysql at 12:43:10 λ tree -L 2
 2 directories, 11 files
 ```
 
-> 小提示：支持定制层级，过滤内容等各种个性化设置。通过`tldr tree`查看具体使用示例。添加`-N`参数解决中文乱码问题。
+小提示：支持定制层级，过滤内容等各种个性化设置。通过`tldr tree`查看具体使用示例。添加`-N`参数解决中文乱码问题。
 
+-----------
 
 ### rlwrap（历史命令）
 
@@ -110,8 +107,11 @@ get product
 $5
 alpha
 ```
-> 小提示：除了`telnet`还有Oracle系列命令需要支持rlwrap包装装`sqlplus`、`rman`、`asmcmd`
-> 快捷别名：`alias telnet='rlwrap telnet'`
+小提示：除了`telnet`还有Oracle系列命令需要支持rlwrap包装装`sqlplus`、`rman`、`asmcmd`
+快捷别名：`alias telnet='rlwrap telnet'`
+
+-----------
+
 
 ### script（记录会话输出）
 
@@ -137,11 +137,13 @@ fechinwork in ~ at 13:34:48 λ exit
 
 Script done on Sat Oct 21 13:34:51 2017
 ```
-> 小提示：`script`可以在什么场景下使用呢？
+小提示：`script`可以在什么场景下使用呢？
 1、我需要把大批量视频推送到CDN，耗时一晚上，这时通过`script`记录执行的日志，第二天对没有推送成功的做单独处理。
 2、别人远程你的服务器或电脑，安全起见`script`一下。
 3、与同事协同工作时，自己工作做了一半，交给另一个人来做，此时发给它你的`script`，让它接着干。
 ……
+
+-----------
 
 
 ### autojump（一键直达）
@@ -162,6 +164,8 @@ fechinwork in ~/Documents at 14:27:41 λ pwd
 /Users/fechinwork/Documents
 fechinwork in ~/Documents at 14:27:44 λ
 ```
-> 小提示：可以通过`j -s`命令查看它的数据库，以及数据库中的目录权重。
+小提示：可以通过`j -s`命令查看它的数据库，以及数据库中的目录权重。
+
+-----------
 
 文章发布在：[iCourt技术团队公众号](https://mp.weixin.qq.com/s/r6StXKqpUofn2f8fMVBrUg)
