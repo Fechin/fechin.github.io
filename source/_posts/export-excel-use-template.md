@@ -5,7 +5,7 @@ tags:
 mp3: http://oybheyjxt.bkt.clouddn.com/%E8%B0%AD%E8%8C%9C%20-%20%E5%85%89%E6%98%8E.mp3
 cover: http://odwjyz4z6.bkt.clouddn.com/index/Softonic-image-1.png
 ---
-Alpha系统中的任务导出功能，第一版引用了经典的Excel操作工具Apache POI。在第二版需求中，产品对样式进行了调整，POI给我们提供了设置样式的方法，但是每次样式的改变带来的都是代码修改，有没有更好的实现方案呢？
+Alpha系统中的任务导出功能，第一版引用了经典的Excel操作工具Apache POI。在第二版需求中，产品对样式进行了调整，POI给我们提供了设置样式的方法，但是每次样式的改变带来的都是代码修改，有没有更好的实现方案呢？  
  
 POI把Excel封装成了Java对象，所以对Excel的修改不得不调用对象方法进行设置，不管是性能、扩展或是易用性方面都有待考证，是否还有更好的办法来处理Excel？
  
