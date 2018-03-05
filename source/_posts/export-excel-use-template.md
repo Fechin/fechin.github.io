@@ -31,7 +31,7 @@ Archive:  template.xlsx
 │   └── core.xml -------------- 核心属性
 └── xl ------------------------- Excel实际内容
     ├── _rels
-    │   └── workbook.xml.relsX
+    │   └── workbook.xml.rels
     ├── sharedStrings.xml ------ 内容数据库
     ├── styles.xml ------------- 单元格样式
     ├── theme
