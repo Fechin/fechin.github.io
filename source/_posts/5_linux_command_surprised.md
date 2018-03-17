@@ -45,7 +45,6 @@ Often combined with a compression method, such as gzip or bzip.
 
 小提示：支持在进20中语言环境下运行，通过`tldr --update`更新本地命令库。
 
------------
 
 
 ### tree（树形目录）
@@ -73,7 +72,6 @@ fechinwork in ~/work/script/nginx2mysql at 12:43:10 λ tree -L 2
 
 小提示：支持定制层级，过滤内容等各种个性化设置。通过`tldr tree`查看具体使用示例。添加`-N`参数解决中文乱码问题。
 
------------
 
 ### rlwrap（历史命令）
 
@@ -110,7 +108,6 @@ alpha
 小提示：除了`telnet`还有Oracle系列命令需要支持rlwrap包装装`sqlplus`、`rman`、`asmcmd`
 快捷别名：`alias telnet='rlwrap telnet'`
 
------------
 
 
 ### script（记录会话输出）
@@ -143,7 +140,6 @@ Script done on Sat Oct 21 13:34:51 2017
 3、与同事协同工作时，自己工作做了一半，交给另一个人来做，此时发给它你的`script`，让它接着干。
 ……
 
------------
 
 
 ### autojump（一键直达）

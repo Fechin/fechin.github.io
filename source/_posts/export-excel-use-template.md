@@ -11,7 +11,6 @@ POI把Excel封装成了Java对象，所以对Excel的修改不得不调用方法
 
 对于样式的设置和修改，最好的方法当然是不修改。如果用模板加自定义语法来实现，达到使用者不需要关心样式设置，并且可以不懂POI，只需要了解基本的语法即可完成一个Excel导出，相比POI性能是否有所提升？
 
-------------------
 ### 文件结构
 
 在次之前，需要了解Excel xlsx格式的文件结构，Excel文件使用OOXML（Open Office XML）文件格式。 这是微软为Office 2007产品开发的技术规范，一个开放文档格式标准；以熟悉的XML为存储语言，了解内部结构有助于对xlsx进行深度定制。
@@ -85,7 +84,6 @@ Archive:  template.xlsx
 </sst>
 ```
 
-------------------
 
 ### 实现思路
 `sheet.xml`和`sharedStrings.xml`是存储内容的关键文件，是我们需要修改的地方。设置单元格的值有两种方法，一种是官方默认用下标从sharedStrings文件中获取，支持压缩；另一种是采取内联字符串的方式将文本放在`t`标签。
@@ -99,7 +97,6 @@ Archive:  template.xlsx
 以用户的角度出发，在Excel文档中设置标记语法，可视化编辑，通过代码逻辑实现模板转换、生成和替换，完成内容渲染和导出。一切，交给程序，如图右方案。
 ![方案对比](http://odwjyz4z6.bkt.clouddn.com/icourt/wechat/excel-export-scheme-contrast.png)
 
-------------------
 
 ### 公式分解
 ![转化成公式](http://odwjyz4z6.bkt.clouddn.com/icourt/wechat/Jietu20180315-175600.jpg)
@@ -115,7 +112,6 @@ Archive:  template.xlsx
 | `#loopTo#n#`  | `#loopTo#8#taskGroups.tasks.name!#` |  1.循环取值<br>2.`loopTo`表示开始循环<br>3.数字8表示到第几行停止循环<br>4.支持嵌套循环   |
 
 
-------------------
 
 ### 导出效果
 ![导出后效果](http://odwjyz4z6.bkt.clouddn.com/icourt/wechat/Jietu20180302-164141.jpg)
