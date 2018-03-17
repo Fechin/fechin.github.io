@@ -106,10 +106,10 @@ Archive:  template.xlsx
 
 | 公式      |    实例    |   说明  |
 | -------- | --------| -------- |
-| `#xxx#`  | `#matterName!#` |  字符串、数字等值   |
-| `#xxx.xx#`  | `#tasks.attendeesStr!#` |  对象属性值   |
-| `#xxx.xxx?string('','')#`  | `#taskGroups.state?string('已完成','未完成')#` |  取值并判断，参考Freemarker语法  |
-| `#loopTo#n#`  | `#loopTo#8#taskGroups.tasks.name!#` |  1.循环取值<br>2.`loopTo`表示开始循环<br>3.数字8表示到第几行停止循环<br>4.支持嵌套循环   |
+| #xxx#  | #matterName!# |  字符串、数字等值   |
+| #xxx.xx#  | #tasks.attendeesStr!# |  对象属性值   |
+| #xxx.xxx?string('','')#  | #taskGroups.state?string('已完成','未完成')# |  取值并判断，参考Freemarker语法  |
+| #loopTo#n#  | #loopTo#8#taskGroups.tasks.name!# |  1.循环取值<br>2.`loopTo`表示开始循环<br>3.数字8表示到第几行停止循环<br>4.支持嵌套循环   |
 
 
 
