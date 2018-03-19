@@ -5,6 +5,9 @@ tags:
 mp3: http://oybheyjxt.bkt.clouddn.com/%E8%B0%AD%E8%8C%9C%20-%20%E5%85%89%E6%98%8E.mp3
 cover:  http://odwjyz4z6.bkt.clouddn.com/index/Softonic-image-1.png
 ---
+![](http://odwjyz4z6.bkt.clouddn.com/icourt/wechat/1531520045411_.pic.jpg)
+
+------------------
 Alpha系统中的任务导出功能，第一版引用了经典的Excel操作工具Apache POI。在第二版需求中，产品对样式进行了调整，内容更加直观，POI提供了灵活多样的方法来处理Excel，但是，每次样式的改变带来的都是代码修改。
 
 POI把Excel封装成了Java对象，所以对Excel的修改不得不调用方法进行设置，尽管方法库比较丰富，可以满足业务需求，但是，性能、扩展以及易用性方面都有待考证，是否还有更好的办法实现Excel导出功能？
@@ -108,7 +111,7 @@ Archive:  template.xlsx
 | -------- | --------| -------- |
 | #xxx#  | #matterName!# |  字符串、数字等值   |
 | #xxx.xx#  | #tasks.attendeesStr!# |  对象属性值   |
-| #xxx.xxx?string('','')#  | #taskGroups.state?string('已完成','未完成')# |  取值并判断，参考Freemarker语法  |
+| \#xxx.xxx?string('','')\#  | #taskGroups.state?string('已完成','未完成')# |  取值并判断，参考Freemarker语法  |
 | #loopTo#n#  | #loopTo#8#taskGroups.tasks.name!# |  1.循环取值<br>2.`loopTo`表示开始循环<br>3.数字8表示到第几行停止循环<br>4.支持嵌套循环   |
 
 
