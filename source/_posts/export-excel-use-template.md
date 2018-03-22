@@ -16,7 +16,7 @@ POI把Excel封装成了Java对象，所以对Excel的修改不得不调用方法
 
 ### 文件结构
 
-在次之前，需要了解Excel xlsx格式的文件结构，Excel文件使用OOXML（Open Office XML）文件格式。 这是微软为Office 2007产品开发的技术规范，一个开放文档格式标准；以熟悉的XML为存储语言，了解内部结构有助于对xlsx进行深度定制。
+在此之前，需要了解Excel xlsx格式的文件结构，Excel文件使用OOXML（Open Office XML）文件格式。 这是微软为Office 2007产品开发的技术规范，一个开放文档格式标准；以熟悉的XML为存储语言，了解内部结构有助于对xlsx进行深度定制。
 
 ![xlsx文件组成](http://odwjyz4z6.bkt.clouddn.com/icourt/wechat/006tKfTcly1fktlxunqd0j30dw0fnta4.jpg)
 
