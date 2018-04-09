@@ -19,7 +19,7 @@ date: 2016-09-24 08:25:21
 #### 开源项目
 
 - [hexo-theme-diaspora](https://github.com/Fechin/hexo-theme-diaspora)：一款干净，简洁的 Hexo 主题。
-- [oh-my-vim](https://github.com/Fechin/oh-my-vim)：Vim 私人配置，使用 3 年有余，已转 SpaceVim，不折腾了[:手动哭]。
+- [oh-my-vim](https://github.com/Fechin/oh-my-vim)：Vim 私人配置，使用 3 年有余，已转 SpaceVim，不折腾了 [: 手动哭]。
 - [localport](https://github.com/Fechin/localport)：Alfred 3 workflow，快速打开本机指定端口地址。
 
 
@@ -27,6 +27,6 @@ date: 2016-09-24 08:25:21
 
 小站搭载 [Hexo](https://hexo.io/) 动力系统，配合 [Diaspora](https://github.com/Fechin/hexo-theme-diaspora) 金属漆，五菱宏光 / 思域见了都得让三分。早在 2013 年我就开始写博客，当时由 WordPress 强力驱动，小打小闹，质量不佳，文章和博客已自生自灭。
 
-少即是多( Less is more )，喜欢干净简洁，有用的，坚持原创。为了有良好的阅读体验和心情，我在此承诺，小站不接受任何广告赞助，即是只有我一个用户。
+少即是多 ( Less is more )，喜欢干净简洁，有用的，坚持原创。为了有良好的阅读体验和心情，我在此承诺，小站不接受任何广告赞助，即是只有我一个用户。
 <p></p>
 <img src="http://odwjyz4z6.bkt.clouddn.com/personal/Weixin.jpg" alt="扫一扫，十年少" width="200" height="200">
