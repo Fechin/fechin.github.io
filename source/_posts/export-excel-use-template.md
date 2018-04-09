@@ -103,19 +103,23 @@ Archive:  template.xlsx
 
 ### 公式分解
 ![转化成公式](http://odwjyz4z6.bkt.clouddn.com/icourt/wechat/Jietu20180315-175600.jpg)
+
 如图，`#`号作为公式的标识，可能在公式的前后以及内容中间出现，目前只实现了Freemarker模板语法对接，后期可以支持多种模板引擎，如常用的Velocity，Thymeleaf。
 
 `#`号中间的公式参考Freemarker语法
 
-| 公式      |    实例    |   说明  |
-| -------- | --------| -------- |
-| #xxx#  | #matterName!# |  字符串、数字等值   |
-| #xxx.xx#  | #tasks.attendeesStr!# |  对象属性值   |
-| \#xxx.xxx?string('','')\#  | #taskGroups.state?string('已完成','未完成')# |  取值并判断，参考Freemarker语法  |
-| #loopTo#n#  | #loopTo#8#taskGroups.tasks.name!# |  1.循环取值<br>2.`loopTo`表示开始循环<br>3.数字8表示到第几行停止循环<br>4.支持嵌套循环   |
+| 公式                    | 实例                                         | 说明                                                                                  |
+| --------                | --------                                     | --------                                                                              |
+| #xxx#                   | #matterName!#                                | 字符串、数字等值                                                                      |
+| #xxx.xx#                | #tasks.attendeesStr!#                        | 对象属性值                                                                            |
+| #xxx.xxx?string('','')# | #taskGroups.state?string('已完成','未完成')# | 取值并判断，参考Freemarker语法                                                        |
+| #loopTo#n#              | #loopTo#8#taskGroups.tasks.name!#            | 1.循环取值<br>2.`loopTo`表示开始循环<br>3.数字8表示到第几行停止循环<br>4.支持嵌套循环 |
 
 
 
 ### 导出效果
 ![导出后效果](http://odwjyz4z6.bkt.clouddn.com/icourt/wechat/Jietu20180302-164141.jpg)
 
+-----------
+
+文章发布在：[iCourt技术团队公众号](http://mp.weixin.qq.com/s/fBRMJ2gdvAJ9x2th9MJtIg)
