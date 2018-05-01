@@ -120,6 +120,3 @@ sheet.xml 和 sharedStrings.xml 是存储内容的关键文件，是我们需要
 ### 导出效果
 ![导出后效果](http://odwjyz4z6.bkt.clouddn.com/icourt/wechat/Jietu20180302-164141.jpg)
 
------------
-
-文章发布在：[iCourt 技术团队公众号](http://mp.weixin.qq.com/s/fBRMJ2gdvAJ9x2th9MJtIg)

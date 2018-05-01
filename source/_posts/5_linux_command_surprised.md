@@ -162,6 +162,3 @@ fechinwork in ~/Documents at 14:27:44 λ
 ```
 小提示：可以通过`j -s`命令查看它的数据库，以及数据库中的目录权重。
 
------------
-
-文章发布在：[iCourt 技术团队公众号](https://mp.weixin.qq.com/s/r6StXKqpUofn2f8fMVBrUg)
