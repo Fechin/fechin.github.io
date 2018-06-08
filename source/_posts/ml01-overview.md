@@ -2,6 +2,9 @@
 title: 机器学习实战 (一) 机器学习基础
 date: 2018-05-30 10:48:23
 tags:
+- 机器学习
+- Python
+- 基础
 cover: http://odwjyz4z6.bkt.clouddn.com/ml01/ml01cover.png
 mp3: http://oybheyjxt.bkt.clouddn.com/%E4%B8%A2%E7%81%AB%E8%BD%A6%20-%20%E9%A3%8E%E6%99%AF.mp3
 ---
