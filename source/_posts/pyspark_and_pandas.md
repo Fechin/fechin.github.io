@@ -9,11 +9,11 @@ cover: http://odwjyz4z6.bkt.clouddn.com/PandasToSparkDataFrame/PandasToSparkData
 mp3: http://oybheyjxt.bkt.clouddn.com/That%20Girl.mp3
 ---
 
-![Pandas to PySpark](http://odwjyz4z6.bkt.clouddn.com/PandasToSparkDataFrame/pyspark-pandas_cover.jpg)
+![Pandas to PySpark](http://odwjyz4z6.bkt.clouddn.com/PandasToSparkDataFrame/pyspark-pandas_cover5.jpg)
 
-Pandas DataFrame 是一个二维数组，跟数据库中的 Table 或 Excel 很相似，底层使用 Numpy 和 array 存储，Numpy 使用 C 语言编写，运行速度很快。在Python语言中，它们是必不可少的机器学习库。
+Pandas DataFrame 是一个二维数组，跟数据库中的 Table 或 Excel 很相似，底层使用 Numpy 和 array 存储，Numpy 使用 C 语言编写，运行速度很快。在 Python 语言中，它们是必不可少的机器学习库。
 
-因为 Pandas 的高效，实际开发中，我更多的会借助 Pandas 做抽样数据分析，然而生产环境的数据量巨大，需要集群部署，所以生产环境用 Spark 全量运行。Spark 和 Pandas 都可以集成 SQL 能力，但它们支持的 SQL 规范不一致，为保持操作统一，我们可能会选择其中的一种规范，也就有了 Pandas 和 PySpark 数据结构的转换需求。
+因为 Pandas 的高效，实际开发中，我更多的会借助它做抽样数据分析，然而生产环境的数据量巨大，需要集群部署，所以生产环境用 Spark 全量运行。Spark 和 Pandas 都可以集成 SQL 能力，但它们支持的 SQL 规范不一致，为保持操作统一，我们可能会选择其中的一种规范，也就有了 Pandas 和 PySpark 数据结构的转换需求。
 
 #### PySpark DataFrame 转 Pandas DataFrame
 
@@ -51,7 +51,7 @@ sparkDF.show()
 +---+-----+
 ```
 
-PySpark 提供了 toPandas 方法，返回一个 Pandas DataFrame 对象，需要注意，不是所有的类型都可以 toPandas，目前尚不支持的数据类型有 Array、 Map，跟进问题请参考 [SPARK-21187](https://issues.apache.org/jira/browse/SPARK-21187)。
+PySpark 提供了 toPandas 方法，返回一个 Pandas DataFrame 对象，需要注意，不是所有的类型都可以 toPandas，目前尚不支持的数据类型有 ArrayType、 MapType，跟进问题请参考 [SPARK-21187](https://issues.apache.org/jira/browse/SPARK-21187)。
 
 ```python
 pandasDF = sparkDF.toPandas()
@@ -63,7 +63,7 @@ print pandasDF.head()
 ```
 
 ##### 空类型处理
-在 PySpark 转 Pandas 之前，可能需要对数据做一些预处理，下面这个例子是把空的ArrayType、MapType转换为None。读者可举一反三，自行定制。
+在 PySpark 转 Pandas 之前，可能需要对数据做一些预处理，下面这个例子是把空的 ArrayType、MapType 转换为 None。读者可举一反三，自行定制。
 ```python
 from pyspark.sql.types import *
 from pyspark.sql.functions import when, size, col, lit
@@ -74,7 +74,7 @@ for i, f in enumerate(sparkDF.schema.fields):
 ```
 
 #### Pandas DataFrame 转 PySpark DataFrame
-PySpark 的 `createDataFrame(data, schema=None, samplingRatio=None)` 非常强大，它支持RDD、Python元组和列表作为输入，还可以是Pandas DataFrame，其内部会自动进行转换。
+PySpark 的 `createDataFrame(data, schema=None, samplingRatio=None)` 非常强大，它支持 RDD、Python 元组和列表作为输入，还可以是 Pandas DataFrame，其内部会自动进行转换。
 ```
 sqlContext.createDataFrame(pandasDF)
 ```
@@ -101,13 +101,13 @@ Wall time: 1min 37s
 
 #### PySpark 实现原理
 Spark 是由 JVM 语言实现，并且程序会运行在 JVM 之上，无论是 Python、R 还是其它语言实现的 Spark，都会间接的和 JVM 进行通信，获得处理海量数据的能力。
-![Pandas to PySpark](http://odwjyz4z6.bkt.clouddn.com/PandasToSparkDataFrame/PySpark_mini.jpg)
+![Pandas to PySpark](http://odwjyz4z6.bkt.clouddn.com/PandasToSparkDataFrame/PySpark2_mini.jpg)
 
-Python 借助 Py4j 实现和 Java 的交互，一个 PySpark 程序启动时，会实例化Python 版的 SparkContext 对象，这也是一个比较耗时的过程，其内部实现：
+Python 借助 Py4j 实现和 Java 的交互，一个 PySpark 程序启动时，会实例化 Python 版的 SparkContext 对象，这也是一个比较耗时的过程，其内部实现：
 1. 实例化 Py4j GatewayClient，连接 JVM 中的 Py4j GatewayServer
 2. 通过 Py4j Gateway 在 JVM 中实例化 SparkContext 对象
 
-以上，大概解释了为什么创建 SparkContext 慢的原因。那么，Pandas DataFrame转 PySpark DataFrame 慢是为什么呢？原因有三：
+以上，大概解释了为什么创建 SparkContext 慢的原因。那么，Pandas DataFrame 转 PySpark DataFrame 慢是为什么呢？原因有三：
 1. PySpark 并没有直接使用 Pandas DataFrame 的数据类型，而是试图推断数据。
 2. PySpark 不能使用高效的 NumPy 库，并且会迭代每一条记录，将记录中的值转换为 Python 对象。
 3. 通过 Py4j 发送到 JVM 时，必须序列化成 pickle 格式，Spark 会通过单独的线程读取文件并转换成 Scala 类型。
@@ -115,7 +115,7 @@ Python 借助 Py4j 实现和 Java 的交互，一个 PySpark 程序启动时，�
 数据量大时，这一系列步骤将是非常耗时的过程。
 
 #### 使用 Arrow 提高转换速度
-从 Spark 2.3 开始，集成了 Apache Arrow支持，Pandas DataFrame 可以高效地转换为 Arrow 数据并直接传输到 JVM 以创建 Spark DataFrame，性能会更好，不在需要类型推断，参考 [SPARK-20791](https://issues.apache.org/jira/browse/SPARK-20791)。开启 Arrow 后的执行原理：
+从 Spark 2.3 开始，集成了 Apache Arrow 支持，Pandas DataFrame 可以高效地转换为 Arrow 数据并直接传输到 JVM 以创建 Spark DataFrame，性能会更好，不在需要类型推断，参考 [SPARK-20791](https://issues.apache.org/jira/browse/SPARK-20791)。开启 Arrow 后的执行原理：
 1. 根据默认并行数将 Pandas DataFrame 切片
 2. 将每个 Pandas 切片转换为 Arrow RecordBatch
 3. 将 schema 从 Arrow 转换为 Spark
