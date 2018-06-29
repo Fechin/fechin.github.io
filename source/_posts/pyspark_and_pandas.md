@@ -40,8 +40,8 @@ sc = spark.sparkContext
 生成测试数据
 
 ```python
-sparkDF = sc.parallelize([(1, "foo"), (2, "bar")]).toDF(["id", "value"])
-sparkDF.show()
+spf = sc.parallelize([(1, "foo"), (2, "bar")]).toDF(["id", "value"])
+spf.show()
 
 +---+-----+
 | id|value|
@@ -54,8 +54,8 @@ sparkDF.show()
 PySpark 提供了 toPandas 方法，返回一个 Pandas DataFrame 对象，需要注意，不是所有的类型都可以 toPandas，目前尚不支持的数据类型有 ArrayType、 MapType，跟进问题请参考 [SPARK-21187](https://issues.apache.org/jira/browse/SPARK-21187)。
 
 ```python
-pandasDF = sparkDF.toPandas()
-print pandasDF.head()
+pdf = spf.toPandas()
+print pdf.head()
 
 	id value
 0   1   foo
@@ -67,16 +67,16 @@ print pandasDF.head()
 ```python
 from pyspark.sql.types import *
 from pyspark.sql.functions import when, size, col, lit
-for i, f in enumerate(sparkDF.schema.fields):
+for i, f in enumerate(spf.schema.fields):
     if isinstance(f.dataType, ArrayType) \
     or isinstance(f.dataType, MapType):
-        sparkDF = sparkDF.withColumn(f.name, when(size(col(f.name)) == 0 , lit(None)).otherwise(col(f.name) ) )
+        spf = spf.withColumn(f.name, when(size(col(f.name)) == 0 , lit(None)).otherwise(col(f.name) ) )
 ```
 
 #### Pandas DataFrame 转 PySpark DataFrame
 PySpark 的 `createDataFrame(data, schema=None, samplingRatio=None)` 非常强大，它支持 RDD、Python 元组和列表作为输入，还可以是 Pandas DataFrame，其内部会自动进行转换。
 ```
-sqlContext.createDataFrame(pandasDF)
+sqlContext.createDataFrame(pdf)
 ```
 
 #### 性能测试
@@ -87,8 +87,8 @@ sqlContext.createDataFrame(pandasDF)
 
 ```python
 n_rows = 500000
-pandasDF = pd.DataFrame(np.random.randn(n_rows, 20))
-%time sparkDF = sqlContext.createDataFrame(pandasDF)
+pdf = pd.DataFrame(np.random.randn(n_rows, 20))
+%time spf = sqlContext.createDataFrame(pdf)
 
 CPU times: user 1min 32s, sys: 1.08 s, total: 1min 33s
 Wall time: 1min 37s
@@ -127,7 +127,7 @@ Python 借助 Py4j 实现和 Java 的交互，一个 PySpark 程序启动时，�
 # 也可以在 spark-defaults.conf 配置
 spark.conf.set("spark.sql.execution.arrow.enabled", "true")
 
-sparkDF = spark.createDataFrame(pdDF)
+spf = spark.createDataFrame(pdDF)
 ```
 如图，使用 Arrow 之后，测试 100w 条数据仅仅用了 1.2 秒
 ![PySpark to Pandas](http://odwjyz4z6.bkt.clouddn.com/PandasToSparkDataFrame/PandasToSparkDataFrame_witharrow_mini.jpg)

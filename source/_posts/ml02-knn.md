@@ -5,7 +5,7 @@ tags:
 - 算法
 - 最近邻算法
 - 机器学习
-cover: http://odwjyz4z6.bkt.clouddn.com/ml02/ml02cover.jpg
+cover: http://odwjyz4z6.bkt.clouddn.com/ml02/ml02cover2.jpg
 mp3: http://oybheyjxt.bkt.clouddn.com/%E6%80%80%E5%BF%B5%E9%9D%92%E6%98%A5.mp3
 ---
 ![kNN algorithm](http://odwjyz4z6.bkt.clouddn.com/ml02/knnheader.png)
