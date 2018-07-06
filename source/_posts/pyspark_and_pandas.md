@@ -51,7 +51,7 @@ spf.show()
 +---+-----+
 ```
 
-PySpark 提供了 toPandas 方法，返回一个 Pandas DataFrame 对象，需要注意，不是所有的类型都可以 toPandas，目前尚不支持的数据类型有 ArrayType、 MapType，跟进问题请参考 [SPARK-21187](https://issues.apache.org/jira/browse/SPARK-21187)。
+PySpark 提供了 toPandas 方法，返回一个 Pandas DataFrame 对象，需要注意，不是所有的类型都可以 toPandas，目前尚不支持的数据类型有 ArrayType、 MapType，跟进问题处理进度请参考Jira [SPARK-21187](https://issues.apache.org/jira/browse/SPARK-21187)。
 
 ```python
 pdf = spf.toPandas()
@@ -63,7 +63,7 @@ print pdf.head()
 ```
 
 ##### 空类型处理
-在 PySpark 转 Pandas 之前，可能需要对数据做一些预处理，下面这个例子是把空的 ArrayType、MapType 转换为 None。读者可举一反三，自行定制。
+在 PySpark 转 Pandas 之前，可能需要对数据做一些预处理，如修正数据，数据类型兼容等。下面这个例子是把空的 ArrayType、MapType 转换为 None。读者可举一反三，自行定制。另外，我们还可以通过Spark udf函数达到这个目的。
 ```python
 from pyspark.sql.types import *
 from pyspark.sql.functions import when, size, col, lit
@@ -74,7 +74,7 @@ for i, f in enumerate(spf.schema.fields):
 ```
 
 #### Pandas DataFrame 转 PySpark DataFrame
-PySpark 的 `createDataFrame(data, schema=None, samplingRatio=None)` 非常强大，它支持 RDD、Python 元组和列表作为输入，还可以是 Pandas DataFrame，其内部会自动进行转换。
+PySpark 的 `createDataFrame(data, schema=None, samplingRatio=None)` 非常强大，它不仅支持 RDD、Python 元组和列表作为输入，还可以是 Pandas DataFrame，其内部会自动进行转换，其原理可以参考下文PySpark实现原理部分。
 ```
 sqlContext.createDataFrame(pdf)
 ```
@@ -124,7 +124,7 @@ Python 借助 Py4j 实现和 Java 的交互，一个 PySpark 程序启动时，�
 
 代码实现：
 ```python
-# 也可以在 spark-defaults.conf 配置
+# 也可以在 spark-defaults.conf 全局配置
 spark.conf.set("spark.sql.execution.arrow.enabled", "true")
 
 spf = spark.createDataFrame(pdDF)
@@ -132,5 +132,5 @@ spf = spark.createDataFrame(pdDF)
 如图，使用 Arrow 之后，测试 100w 条数据仅仅用了 1.2 秒
 ![PySpark to Pandas](http://odwjyz4z6.bkt.clouddn.com/PandasToSparkDataFrame/PandasToSparkDataFrame_witharrow_mini.jpg)
 
-跟不使用 Arrow 相比，差得不是一点半点啊，下图中的红线是使用 Arrow 的耗时，基本与 X 轴重合了。
+跟不使用 Arrow 相比，差得不是一点半点啊，下图中的红线是使用 Arrow 的耗时，基本与 X 轴重合了，这么高的反差，笔者感到很惊讶。
 ![PySpark to Pandas](http://odwjyz4z6.bkt.clouddn.com/PandasToSparkDataFrame/PandasToSparkDataFrame_twoline_mini.jpg)

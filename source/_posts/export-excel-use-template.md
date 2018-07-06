@@ -13,18 +13,18 @@ cover:  http://odwjyz4z6.bkt.clouddn.com/index/Softonic-image-1.png
 ------------------
 Alpha 系统中的任务导出功能，第一版引用了经典的 Excel 操作工具 Apache POI。在第二版需求中，产品对样式进行了调整，内容更加直观，POI 提供了灵活多样的方法来处理 Excel，但是，每次样式的改变带来的都是代码修改。
 
-POI 把 Excel 封装成了 Java 对象，所以对 Excel 的修改不得不调用方法进行设置，尽管方法库比较丰富，可以满足业务需求，但是，性能、扩展以及易用性方面都有待考证，是否还有更好的办法实现 Excel 导出功能？
+POI 把 Excel 封装成了 Java 对象，对 Excel 的修改不得不调用内部方法一一设置，尽管方法库比较丰富，基本满足业务需求，但是，性能、扩展以及易用性方面都有待考证，是否还有更好的办法实现 Excel 导出功能？
 
-对于样式的设置和修改，最好的方法当然是不修改。如果用模板加自定义语法来实现，达到使用者不需要关心样式设置，并且可以不懂 POI，只需要了解基本的语法即可完成一个 Excel 导出，相比 POI 性能是否有所提升？
+对于样式的设置和修改，最好的方法当然是不修改。如果用模板加自定义语法来实现，达到使用者不需要关心样式设置，并且可以不懂 POI，只需要了解基本的语法即可完成一个 Excel 导出，相比 POI 性能是否有所提升？下文，我们一起来实施这个方案。
 
 ### 文件结构
 
-在此之前，需要了解 Excel xlsx 格式的文件结构，Excel 文件使用 OOXML（Open Office XML）文件格式。 这是微软为 Office 2007 产品开发的技术规范，一个开放文档格式标准；以熟悉的 XML 为存储语言，了解内部结构有助于对 xlsx 进行深度定制。
+在此之前，需要了解 Excel xlsx 格式的文件结构，Excel 文件使用 OOXML（Open Office XML）文件格式，这是微软为 Office 2007 产品开发的技术规范，一个开放文档格式标准。Excel 以熟悉的 XML 为存储语言，了解内部结构有助于对 xlsx 进行深度定制，下图是一个较为全面的 Excel 元素集合。
 
 ![xlsx 文件组成](http://odwjyz4z6.bkt.clouddn.com/icourt/wechat/006tKfTcly1fktlxunqd0j30dw0fnta4.jpg)
 
 ------------------
-xlsx 文件实际上是一个压缩的 XML 文件集合，包含元数据、媒体和图片等文件，开发者可以方便地查看和编辑 Excel 工作簿的结构内容，把它看做 zip 压缩包，通过 `unzip` 命令解压得到如下内容：
+xlsx 文件实际上是一个压缩的 XML 文件集合，包含元数据、媒体和图片等文件，开发者可以方便地查看和编辑 Excel 工作簿的结构内容，我们把它看做 zip 压缩包，通过 `unzip` 命令解压得到如下内容：
 ```
 Archive:  template.xlsx
  ----------------------------------------------
@@ -49,7 +49,7 @@ Archive:  template.xlsx
 6 directories, 12 files
 ```
 ------------------
-sheet{n}.xml 文件包含了工作表的行、列、合并的单元格以及单元格其它特征。每个工作表对应一个 sheet.xml，文件名序号`n`从 1 开始。
+xl/worksheets/sheet{n}.xml 文件包含了工作表的行、列、合并的单元格以及单元格其它特征。每个工作表对应一个 sheet.xml，文件名序号`n`从 1 开始，它是实现方案的重要文件。
 ```xml
 <worksheet ... >
   <cols><!-- 列集合 -->
@@ -71,7 +71,7 @@ sheet{n}.xml 文件包含了工作表的行、列、合并的单元格以及单�
 </worksheet>
 ```
 ------------------
-sharedStrings.xml 存储工作表中出现的字符串。Excel 为了节省空间，每一个相同的字符只会保存一次。一个`<si>`（SharedStringItem）标签代表一个内容，从 0 开始， 被 sheet.xml 中的`<v>`（value）标签引用，程序可以把 sharedStrings.xml 解析成一个 List 集合。
+xl/sharedStrings.xml 存储工作表中出现的字符串。Excel 为了节省空间，每一个相同的字符只会保存一次。一个`<si>`（SharedStringItem）标签代表一个内容，从 0 开始， 被 sheet.xml 中的`<v>`（value）标签引用，程序中可以把 sharedStrings.xml 解析成一个 List 集合，集合下标也是引用下标。
 ```xml
 <sst ...>
   <si><!-- SharedStringItem：字符内容条目 -->
