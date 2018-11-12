@@ -3,9 +3,9 @@ title: Ubuntu Burg 引导之打开电脑的那一刻
 date: 2012-11-14 12:19:20
 tags:
 mp3: http://link.hhtjim.com/163/33162226.mp3
-cover: http://odwjyz4z6.bkt.clouddn.com/005.jpg
+cover: /static/images/005.jpg
 ---
-![enter image description here](http://odwjyz4z6.bkt.clouddn.com/burg-preview.jpg)
+![enter image description here](/static/images/burg-preview.jpg)
 
 [Burg](https://code.google.com/archive/p/burg/downloads) 是一款帮助你在开机时选择操作系统的精简版应用程序，具有一个高度可扩展的菜单系统，可选择文本和图形模式。简而言之，Burg 可广泛定制，有很多免费的 Burg 主题。软件支持各类操作系统，如 Linux、Windows、OSX、Solaris、FreeBSD 等。如果你装有多个操作系统，开机选择系统的同时能根据自定义主题展示，Burg 一定是你不错的选择。下面我在 Ubuntu12.10 下是如何安装 Burg 的，上图便是预览效果。
 

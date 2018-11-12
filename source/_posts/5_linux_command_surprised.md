@@ -2,8 +2,8 @@
 title: 5 个相见恨晚的 Linux 命令 - 终端之美
 date: 2017-11-28 15:16:26
 tags:
-mp3: http://oybheyjxt.bkt.clouddn.com/Jam%20-%20%E4%B8%83%E6%9C%88%E4%B8%8A.mp3
-cover: http://odwjyz4z6.bkt.clouddn.com/CotOTsNUAAENHGa.jpg
+mp3: /static/mp3/Jam%20-%20%E4%B8%83%E6%9C%88%E4%B8%8A.mp3
+cover: /static/images/CotOTsNUAAENHGa.jpg
 ---
 
 ### tldr（命令手册）

@@ -5,10 +5,10 @@ tags:
 - 机器学习
 - Python
 - 基础
-cover: http://odwjyz4z6.bkt.clouddn.com/ml01/ml01cover.png
-mp3: http://oybheyjxt.bkt.clouddn.com/%E4%B8%A2%E7%81%AB%E8%BD%A6%20-%20%E9%A3%8E%E6%99%AF.mp3
+cover: /static/images/ml01/ml01cover.png
+mp3: /static/mp3/%E4%B8%A2%E7%81%AB%E8%BD%A6%20-%20%E9%A3%8E%E6%99%AF.mp3
 ---
-![开始学习机器学习](http://odwjyz4z6.bkt.clouddn.com/ml01-start.jpeg)
+![开始学习机器学习](/static/images/ml01-start.jpeg)
 
 在没接触机器学习之前， 一提起机器学习，就会觉得深奥、难懂、一般人很难入门，貌似是科学家做的事情。真的是这样吗？事实却非如此，它并不要求计算机能像人一样有情感，也不会与计算机探讨人生的意义，更不会对你有非分之想。
 
@@ -24,7 +24,7 @@ mp3: http://oybheyjxt.bkt.clouddn.com/%E4%B8%A2%E7%81%AB%E8%BD%A6%20-%20%E9%A3%8
 
 
 #### 机器学习算法
-![机器学习算法](http://odwjyz4z6.bkt.clouddn.com/ml01/ml_algorithm.jpg)
+![机器学习算法](/static/images/ml01/ml_algorithm.jpg)
 
 机器学习领域中常用的有 10 几种算法，它们用于分类，回归，聚类，降维，其中分类和回归是监督学习，所谓**监督学习（Supervised Learning），意为必须知道预测什么，即目标变量的分类信息**。举个栗子，我收集了一批数据，数据中包含人体特征和分类标识男 / 女 / 其
 它，用训练好的算法预测另一批带人体特征的性别分类，确认这批人是男是女。
@@ -33,7 +33,7 @@ mp3: http://oybheyjxt.bkt.clouddn.com/%E4%B8%A2%E7%81%AB%E8%BD%A6%20-%20%E9%A3%8
 
 
 ####  开发步骤
-![开发机器学习应用的步骤](http://odwjyz4z6.bkt.clouddn.com/ml01/ml_steps.jpg)
+![开发机器学习应用的步骤](/static/images/ml01/ml_steps.jpg)
 
 开发大多数机器学习的应用通常遵循以下步骤：
 1. 收集数据：可以是多种方法收集数据，如爬虫、数据生成器、公开数据集等。初学及测试算法建议使用公开数据源，具备一定的权威性，准确度高，节省时间，后续文章会有所涉及。

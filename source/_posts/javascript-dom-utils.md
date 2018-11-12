@@ -3,7 +3,7 @@ title: JavaScript 给 DOM 元素相同事件绑定多函数
 date: 2013-08-30 06:32:31
 tags:
 mp3: http://link.hhtjim.com/163/27646205.mp3
-cover: http://odwjyz4z6.bkt.clouddn.com/2a6a93c00e6.jpg
+cover: /static/images/2a6a93c00e6.jpg
 ---
 ### 给 DOM 元素的同一事件绑定多个处理函数
 今天，同事问“一个 DOM 元素的同一事件如何绑定多个方法”，为什么这么问，因为在 javascript 中有一个规律，如果某元素的某事件多次赋值，那么只有最后一次赋值生效，如下代码将只弹出”second.”。

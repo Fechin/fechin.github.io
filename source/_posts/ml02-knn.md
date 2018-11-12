@@ -5,10 +5,10 @@ tags:
 - 算法
 - 最近邻算法
 - 机器学习
-cover: http://odwjyz4z6.bkt.clouddn.com/ml02/ml02cover2.jpg
-mp3: http://oybheyjxt.bkt.clouddn.com/%E6%80%80%E5%BF%B5%E9%9D%92%E6%98%A5.mp3
+cover: /static/images/ml02/ml02cover2.jpg
+mp3: /static/mp3/%E6%80%80%E5%BF%B5%E9%9D%92%E6%98%A5.mp3
 ---
-![kNN algorithm](http://odwjyz4z6.bkt.clouddn.com/ml02/knnheader.png)
+![kNN algorithm](/static/images/ml02/knnheader.png)
 
 #### 什么是 k 近邻算法
 k 近邻（k-Nearest Neighbor，kNN）是机器学习中相对简单且容易理解的算法，是分类数据最简单有效的算法，它基于实例学习，我们必须用最真实的样本数据对模型进行训练，以便预测出的结果更具参考意义。
@@ -25,7 +25,7 @@ k 近邻（k-Nearest Neighbor，kNN）是机器学习中相对简单且容易理
 
 接下来，举个栗子带大家更好的理解 kNN 算法。如图，有黄色的管理人才，深蓝色的架构师，以及未知的天蓝色。
 
-![kNN Sample](http://odwjyz4z6.bkt.clouddn.com/ml02/kNNsample.jpg)
+![kNN Sample](/static/images/ml02/kNNsample.jpg)
 
 当我们需要对员工进行技术和管理两个培养方向分类时，可能会考虑到他们的情商、沟通、技能、协作、远见、解决问题等能力。由于人类大脑的限制，我们只能处理三维以下的事务，这里只列举两个特征“情商”和“技能”评分，假设情商分高可作为管理人才来培养，技能分高作为架构师人才来培养。
 
@@ -44,7 +44,7 @@ k 近邻（k-Nearest Neighbor，kNN）是机器学习中相对简单且容易理
 
 
 现在的需求是通过天蓝色的特征值预测他更适合的培养方向，按照 kNN 算法的实现步骤，计算出天蓝色特征与样本集的距离。计算二维平面上两点 a(x1,y1) 与 b(x2,y2) 间的欧氏距离
-![Euclidean Distance](http://odwjyz4z6.bkt.clouddn.com/ml02/EuclideanDistanceGraphic01.jpg)
+![Euclidean Distance](/static/images/ml02/EuclideanDistanceGraphic01.jpg)
 
 按距离升序排序之后结果如下：
 

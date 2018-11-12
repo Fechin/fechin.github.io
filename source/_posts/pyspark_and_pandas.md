@@ -5,11 +5,11 @@ tags:
 - Python
 - PySpark
 - Pandas
-cover: http://odwjyz4z6.bkt.clouddn.com/PandasToSparkDataFrame/PandasToSparkDataFrame_mini.jpg
-mp3: http://oybheyjxt.bkt.clouddn.com/That%20Girl.mp3
+cover: /static/images/PandasToSparkDataFrame/PandasToSparkDataFrame_mini.jpg
+mp3: /static/mp3/That%20Girl.mp3
 ---
 
-![Pandas to PySpark](http://odwjyz4z6.bkt.clouddn.com/PandasToSparkDataFrame/pyspark-pandas_cover5.jpg)
+![Pandas to PySpark](/static/images/PandasToSparkDataFrame/pyspark-pandas_cover5.jpg)
 
 Pandas DataFrame 是一个二维数组，跟数据库中的 Table 或 Excel 很相似，底层使用 Numpy 和 array 存储，Numpy 使用 C 语言编写，运行速度很快。在 Python 语言中，它们是必不可少的机器学习库。
 
@@ -95,13 +95,13 @@ Wall time: 1min 37s
 ```
 当 Pandas DataFrame 行数为 n_rows ，列固定 20 ，将其转换为 PySpark DataFrame 耗时如下：
 
-![PySpark to Pandas](http://odwjyz4z6.bkt.clouddn.com/PandasToSparkDataFrame/PandasToSparkDataFrame_withoutarrow_mini.jpg)
+![PySpark to Pandas](/static/images/PandasToSparkDataFrame/PandasToSparkDataFrame_withoutarrow_mini.jpg)
 随着行数的增加，越来越耗时，100w 条数据时耗时已经超过 200 秒，笔者也测试了从 PySpark DataFrame 到 Pandas DataFrame 的转换，耗时基本一致，时间都去哪儿了？
 
 
 #### PySpark 实现原理
 Spark 是由 JVM 语言实现，并且程序会运行在 JVM 之上，无论是 Python、R 还是其它语言实现的 Spark，都会间接的和 JVM 进行通信，获得处理海量数据的能力。
-![Pandas to PySpark](http://odwjyz4z6.bkt.clouddn.com/PandasToSparkDataFrame/PySpark2_mini.jpg)
+![Pandas to PySpark](/static/images/PandasToSparkDataFrame/PySpark2_mini.jpg)
 
 Python 借助 Py4j 实现和 Java 的交互，一个 PySpark 程序启动时，会实例化 Python 版的 SparkContext 对象，这也是一个比较耗时的过程，其内部实现：
 1. 实例化 Py4j GatewayClient，连接 JVM 中的 Py4j GatewayServer
@@ -130,7 +130,7 @@ spark.conf.set("spark.sql.execution.arrow.enabled", "true")
 spf = spark.createDataFrame(pdDF)
 ```
 如图，使用 Arrow 之后，测试 100w 条数据仅仅用了 1.2 秒
-![PySpark to Pandas](http://odwjyz4z6.bkt.clouddn.com/PandasToSparkDataFrame/PandasToSparkDataFrame_witharrow_mini.jpg)
+![PySpark to Pandas](/static/images/PandasToSparkDataFrame/PandasToSparkDataFrame_witharrow_mini.jpg)
 
 跟不使用 Arrow 相比，差得不是一点半点啊，下图中的红线是使用 Arrow 的耗时，基本与 X 轴重合了，这么高的反差，笔者感到很惊讶。
-![PySpark to Pandas](http://odwjyz4z6.bkt.clouddn.com/PandasToSparkDataFrame/PandasToSparkDataFrame_twoline_mini.jpg)
+![PySpark to Pandas](/static/images/PandasToSparkDataFrame/PandasToSparkDataFrame_twoline_mini.jpg)

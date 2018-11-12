@@ -3,7 +3,7 @@ title: Tigase 集成预研
 date: 2016-10-10 01:56:10
 tags:
 mp3: http://link.hhtjim.com/163/283846.mp3
-cover: http://odwjyz4z6.bkt.clouddn.com/tigase-pre-research_xiangji_2_mini.jpg
+cover: /static/images/tigase-pre-research_xiangji_2_mini.jpg
 ---
 
 ### 1. 安装 Tigase-server
