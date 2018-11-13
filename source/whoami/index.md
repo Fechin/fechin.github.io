@@ -29,4 +29,4 @@ date: 2016-09-24 08:25:21
 
 少即是多 ( Less is more )，喜欢干净简洁，有用的，坚持原创。为了有良好的阅读体验和心情，我在此承诺，小站不接受任何广告赞助，即使只有我一个用户。
 <p></p>
-<img src="http://odwjyz4z6.bkt.clouddn.com/personal/Weixin.jpg" alt="扫一扫，十年少" width="200" height="200">
+<img src="/static/images/personal/Weixin.jpg" alt="扫一扫，十年少" width="200" height="200">
