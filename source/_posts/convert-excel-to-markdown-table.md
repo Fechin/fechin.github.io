@@ -26,7 +26,7 @@ cover:  /static/images/thumb-1920-411820.jpg
 
 这是一个教你如何逐步将Excel转换为Markdown语法的最佳指南的视频。 [去Youtube观看](https://youtu.be/2h0A_ZXLtrM)
 
-### Excel到Markdown步骤
+### Excel转换为Markdown步骤
 
 **步骤1. **首先，使用浏览器打开 [https://tableconvert.com](https://tableconvert.com)
 
