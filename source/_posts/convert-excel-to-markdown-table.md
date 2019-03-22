@@ -34,8 +34,8 @@ cover:  /static/images/thumb-1920-411820.jpg
 > Paste your cells from Excel, Numbers, Google Docs or Browser table
 
 
-**步骤3. **如上所述，从Excel（或其他电子表格程序）复制一系列单元格并将其粘贴到文本框中，单击`Import data`按钮。
+**步骤3. **如上所述，从Excel（或其他电子表格程序）复制一系列单元格并将其粘贴到文本框中，单击`Import Data`按钮。
 
 **步骤4. **现在，从Excel复制的内容已导入网站并自动转换为Markdown表格，你只需要确保在输出区域中选择的选项卡是`Markdown`。
 
-单击`Copy`按钮将结果复制到剪贴板。单击`Dowuload`按钮将Markdown文件下载到本地。拿到对应Excel表格的Markdown后，你可以在文档中使用该文本。
+单击`Copy`按钮将结果复制到剪贴板。单击`Download`按钮将Markdown文件下载到本地。拿到对应Excel表格的Markdown后，你可以在文档中使用该文本。
