@@ -1,7 +1,12 @@
 ---
 title: Ubuntu Burg 引导之打开电脑的那一刻
 date: 2012-11-14 12:19:20
+categories:
+    - Linux
 tags:
+    - Burg
+    - 引导
+    - Ubuntu
 mp3: http://link.hhtjim.com/163/33162226.mp3
 cover: /static/images/005.jpg
 ---

@@ -1,7 +1,12 @@
 ---
 title: Ubuntu 12.10 手动安装 Burg 引导
 date: 2012-12-16 12:46:30
+categories:
+    - Linux
 tags:
+    - Burg
+    - 引导
+    - Ubuntu
 mp3: http://link.hhtjim.com/163/3374005.mp3
 cover: /static/images/install-burg-on-ubuntu-manual-coverb5bf2b4ebe345f1264a3659720b1d9f9.jpg
 ---

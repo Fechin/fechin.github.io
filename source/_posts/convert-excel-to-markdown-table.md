@@ -1,11 +1,13 @@
 ---
 title: 如何将Excel转换成Markdown表格
 date: 2019-03-21 10:07:23
+categories:
+    - 工具
 tags:
-- Excel
-- Markdown
-- Converter
-- Table
+    - Excel
+    - Markdown
+    - Converter
+    - Table
 mp3: /static/mp3/%E8%B0%AD%E8%8C%9C%20-%20%E5%85%89%E6%98%8E.mp3
 cover:  /static/images/thumb-1920-411820.jpg
 ---

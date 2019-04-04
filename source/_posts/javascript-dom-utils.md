@@ -1,7 +1,11 @@
 ---
 title: JavaScript 给 DOM 元素相同事件绑定多函数
 date: 2013-08-30 06:32:31
+categories:
+    - JavaScript
 tags:
+    - JavaScript
+    - 前端
 mp3: http://link.hhtjim.com/163/27646205.mp3
 cover: /static/images/2a6a93c00e6.jpg
 ---

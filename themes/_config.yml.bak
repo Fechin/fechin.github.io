@@ -1,8 +1,12 @@
 # 头部菜单，title: link
 menu:
   Whoami: /whoami
+  MD-Table: https://tableconvert.com
   Github: https://github.com/Fechin
   Twitter: https://twitter.com/FechinLi
+  分类: /categories
+  归档: /archives
+  标签云: /tags
 
 # 是否显示目录
 TOC: false

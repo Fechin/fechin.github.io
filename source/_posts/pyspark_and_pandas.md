@@ -1,10 +1,11 @@
 ---
 title: Pandas 和 PySpark 的 DataFrame 相互转换
 date: 2018-06-26 16:00:00
+categories:
+    - Python
 tags:
-- Python
-- PySpark
-- Pandas
+    - Pandas
+    - PySpark
 cover: /static/images/PandasToSparkDataFrame/PandasToSparkDataFrame_mini.jpg
 mp3: /static/mp3/That%20Girl.mp3
 ---

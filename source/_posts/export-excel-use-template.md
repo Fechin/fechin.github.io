@@ -1,10 +1,12 @@
 ---
 title: 用模板的思路实现 Excel 导出
 date: 2018-03-03 03:07:23
+categories:
+    - Java
 tags:
-- Excel
-- 方案
-- 导出Excel
+    - Excel
+    - 方案
+    - 导出
 mp3: /static/mp3/%E8%B0%AD%E8%8C%9C%20-%20%E5%85%89%E6%98%8E.mp3
 cover:  /static/images/index/Softonic-image-1.png
 ---

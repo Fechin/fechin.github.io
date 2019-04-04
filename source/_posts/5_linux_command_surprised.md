@@ -1,7 +1,11 @@
 ---
 title: 5 个相见恨晚的 Linux 命令 - 终端之美
 date: 2017-11-28 15:16:26
+categories:
+    - Linux
 tags:
+    - Linux
+    - 命令
 mp3: /static/mp3/Jam%20-%20%E4%B8%83%E6%9C%88%E4%B8%8A.mp3
 cover: /static/images/CotOTsNUAAENHGa.jpg
 ---

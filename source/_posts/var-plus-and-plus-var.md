@@ -1,7 +1,10 @@
 ---
 title: 分析在 Java 中 i++ 和 ++i 的区别
 date: 2012-10-01 06:01:35
+categories:
+    - Java
 tags:
+    - 基础
 mp3: http://link.hhtjim.com/163/33541347.mp3
 cover: /static/images/1-131123121938-50.jpg
 ---

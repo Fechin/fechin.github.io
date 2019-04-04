@@ -1,10 +1,12 @@
 ---
 title: 机器学习之 k 近邻算法
 date: 2018-06-03 12:36:23
+categories:
+    - 机器学习
 tags:
-- 算法
-- 最近邻算法
-- 机器学习
+    - 算法
+    - 最近邻算法
+    - 机器学习
 cover: /static/images/ml02/ml02cover2.jpg
 mp3: /static/mp3/%E6%80%80%E5%BF%B5%E9%9D%92%E6%98%A5.mp3
 ---
