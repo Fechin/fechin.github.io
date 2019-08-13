@@ -6,7 +6,7 @@ categories:
 tags:
     - Pandas
     - PySpark
-cover: /static/images/PandasToSparkDataFrame/PandasToSparkDataFrame_mini.jpg
+cover: /static/images/cover/pyspark-and-pandas.jpeg
 mp3: /static/mp3/That%20Girl.mp3
 ---
 

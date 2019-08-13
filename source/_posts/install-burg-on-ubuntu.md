@@ -8,7 +8,7 @@ tags:
     - 引导
     - Ubuntu
 mp3: http://link.hhtjim.com/163/33162226.mp3
-cover: /static/images/005.jpg
+cover: /static/images/cover/install-burg-on-ubuntu.jpeg
 ---
 ![enter image description here](/static/images/burg-preview.jpg)
 

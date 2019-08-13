@@ -9,7 +9,7 @@ tags:
     - Converter
     - Table
 mp3: /static/mp3/%E8%B0%AD%E8%8C%9C%20-%20%E5%85%89%E6%98%8E.mp3
-cover:  /static/images/thumb-1920-411820.jpg
+cover:  /static/images/cover/convert-excel-to-markdown-table.jpeg
 ---
 
 ![在线将Excel转换为Markdown表格](https://tableconvert.com/static/images/cover/excel-to-markdown.jpg)

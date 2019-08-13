@@ -7,7 +7,7 @@ tags:
     - 博客
     - 工具
 mp3: /static/mp3/%E5%A4%A7%E5%A3%AE%20-%20%E6%88%91%E4%BB%AC%E4%B8%8D%E4%B8%80%E6%A0%B7.mp3
-cover: /static/images/write-blob-cover.jpg
+cover: /static/images/cover/write-blog-tools.jpeg
 ---
 
 

@@ -7,7 +7,7 @@ tags:
     - Linux
     - 命令
 mp3: /static/mp3/Jam%20-%20%E4%B8%83%E6%9C%88%E4%B8%8A.mp3
-cover: /static/images/CotOTsNUAAENHGa.jpg
+cover: /static/images/cover/5-linux-command-surprised.jpeg
 ---
 
 ### tldr（命令手册）

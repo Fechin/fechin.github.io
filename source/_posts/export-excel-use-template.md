@@ -8,7 +8,7 @@ tags:
     - 方案
     - 导出
 mp3: /static/mp3/%E8%B0%AD%E8%8C%9C%20-%20%E5%85%89%E6%98%8E.mp3
-cover:  /static/images/index/Softonic-image-1.png
+cover:  /static/images/cover/export-excel-use-template.jpeg
 ---
 ![](/static/images/icourt/wechat/1531520045411_.pic.jpg)
 

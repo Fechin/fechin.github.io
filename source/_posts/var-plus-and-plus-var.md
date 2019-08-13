@@ -6,7 +6,7 @@ categories:
 tags:
     - 基础
 mp3: http://link.hhtjim.com/163/33541347.mp3
-cover: /static/images/1-131123121938-50.jpg
+cover: /static/images/cover/var-plus-and-plus-var.jpeg
 ---
 刚接触编程时，i++ 与 ++i 这类问题确实难以理解，即使知道它俩区别，还是不能做到学以致用，今天让我带领新手把它给摸透了，看它葫芦里卖的是什么药，高手可以飘过哦~~
 

@@ -7,8 +7,8 @@ tags:
     - 机器学习
     - Python
     - 基础
-cover: /static/images/ml01/ml01cover.png
 mp3: /static/mp3/%E4%B8%A2%E7%81%AB%E8%BD%A6%20-%20%E9%A3%8E%E6%99%AF.mp3
+cover: /static/images/cover/ml01-overview.jpeg
 ---
 ![开始学习机器学习](/static/images/ml01-start.jpeg)
 

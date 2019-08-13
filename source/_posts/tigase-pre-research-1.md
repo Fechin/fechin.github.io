@@ -7,7 +7,7 @@ tags:
     - Java
     - IM
 mp3: http://link.hhtjim.com/163/283846.mp3
-cover: /static/images/tigase-pre-research_xiangji_2_mini.jpg
+cover: /static/images/cover/tigase-pre-research-1.jpeg
 ---
 
 ### 1. 安装 Tigase-server
