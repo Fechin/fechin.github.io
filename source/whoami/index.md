@@ -28,5 +28,3 @@ date: 2016-09-24 08:25:21
 小站搭载 [Hexo](https://hexo.io/) 动力系统，配合 [Diaspora](https://github.com/Fechin/hexo-theme-diaspora) 金属漆，五菱宏光 / 思域见了都得让三分。早在 2013 年我就开始写博客，当时由 WordPress 强力驱动，小打小闹，质量不佳，文章和博客已自生自灭。
 
 少即是多 ( Less is more )，喜欢干净简洁，有用的，坚持原创。
-<p></p>
-<img src="/static/images/personal/Weixin.jpg" alt="扫一扫，十年少" width="200" height="200">

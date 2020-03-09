@@ -7,7 +7,7 @@ tags:
     - Burg
     - 引导
     - Ubuntu
-mp3: http://link.hhtjim.com/163/33162226.mp3
+mp3: https://link.hhtjim.com/163/33162226.mp3
 cover: /static/images/cover/install-burg-on-ubuntu.jpeg
 ---
 ![enter image description here](/static/images/burg-preview.jpg)
@@ -38,7 +38,7 @@ sudo apt-get install burg burg-themes burg-emu
 ```
 burg-emu
 ```
-如果到这里你还没安装成功，不妨试试[手动安装 Burg](http://fech.in/2012/install-burg-on-ubuntu-manual/)。
+如果到这里你还没安装成功，不妨试试[手动安装 Burg](https://fech.in/2012/install-burg-on-ubuntu-manual/)。
 
 ### 安装主题
 

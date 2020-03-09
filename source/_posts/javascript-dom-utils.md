@@ -6,7 +6,7 @@ categories:
 tags:
     - JavaScript
     - 前端
-mp3: http://link.hhtjim.com/163/27646205.mp3
+mp3: https://link.hhtjim.com/163/27646205.mp3
 cover: /static/images/cover/javascript-dom-utils.jpeg
 ---
 ### 给 DOM 元素的同一事件绑定多个处理函数

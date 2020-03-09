@@ -1,9 +1,8 @@
 # 头部菜单，title: link
 menu:
   Whoami: /whoami
-  MD-Table: https://tableconvert.com
   Github: https://github.com/Fechin
-  Twitter: https://twitter.com/FechinLi
+  表格生成器: https://tableconvert.com
   分类: /categories
   归档: /archives
   标签云: /tags

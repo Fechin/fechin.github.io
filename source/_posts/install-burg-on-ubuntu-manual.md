@@ -7,11 +7,11 @@ tags:
     - Burg
     - 引导
     - Ubuntu
-mp3: http://link.hhtjim.com/163/3374005.mp3
+mp3: https://link.hhtjim.com/163/3374005.mp3
 cover: /static/images/cover/install-burg-on-ubuntu-manual.jpeg
 ---
 
-一个月前在本本上装过 Burg，也是之前唯一一次在 Ubuntu12.10 安装成功，当时写了一篇文章叫 [Ubuntu Burg 引导之打开电脑的那一刻](http://fech.in/2012/install-burg-on-ubuntu/)，之后多次重装，再也没有成功过，更新源错误提示
+一个月前在本本上装过 Burg，也是之前唯一一次在 Ubuntu12.10 安装成功，当时写了一篇文章叫 [Ubuntu Burg 引导之打开电脑的那一刻](https://fech.in/2012/install-burg-on-ubuntu/)，之后多次重装，再也没有成功过，更新源错误提示
 
 > 无法下载“W: 无法下载 http://ppa.launchpad.net/n-muench/burg/ubuntu/dists/quantal/main/source/Sources 404 Not Found”
 

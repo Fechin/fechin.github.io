@@ -48,9 +48,9 @@ cover: /static/images/cover/ml01-overview.jpeg
 #### 技术准备
 Python 是机器学习最受欢迎的语言之一，可以很方便的集成科学计算库、图表库，和其它语言相比，它更像是工具。建议使用 Python 3，Python 2 将在 2020 年停止维护。[Anaconda](https://anaconda.org/) 是用于科学计算相关的 Python 发行版，为了节省时间，建议安装它快速上手，它集成了常用的机器学习相关库，下面几个库在机器学习中很重要，已经被集成在 Anaconda，建议学习一遍。
 
-- [numpy](http://www.numpy.org/)：矩阵计算，多维数组
+- [numpy](https://www.numpy.org/)：矩阵计算，多维数组
 - [scipy](https://www.scipy.org/)：科学工具集
 - [matplotlib](https://matplotlib.org/index.html)：强大的画图工具库
-- [scikit-learn](http://scikit-learn.org/stable/#)：重点，高效的数据挖掘和数据分析工具，集成了机器学习中大多数算法，可直接使用
+- [scikit-learn](https://scikit-learn.org/stable/#)：重点，高效的数据挖掘和数据分析工具，集成了机器学习中大多数算法，可直接使用
 - [pandas](https://pandas.pydata.org/)：高效地操作大型数据集
 

@@ -6,7 +6,7 @@ categories:
 tags:
     - Java
     - IM
-mp3: http://link.hhtjim.com/163/283846.mp3
+mp3: https://link.hhtjim.com/163/283846.mp3
 cover: /static/images/cover/tigase-pre-research-1.jpeg
 ---
 
@@ -72,10 +72,10 @@ git clone https://repository.tigase.org/git/tigase-xmltools.git
 #### 2.4 扩展
 ```
 // 如何编写一个组件
-http://my.oschina.net/wjwei113/blog/375326
+https://my.oschina.net/wjwei113/blog/375326
 
 // 如何编写一个插件
-http://my.oschina.net/wjwei113/blog/375304
+https://my.oschina.net/wjwei113/blog/375304
 ```
 ### 3. 需求及规范
 
