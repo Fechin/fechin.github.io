@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://fech.in/whoami/index.html</loc>
+    
+    <lastmod>2020-03-09T04:41:28.656Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fech.in/search/index.html</loc>
+    
+    <lastmod>2020-03-09T01:49:33.657Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://fech.in/2019/write-blog-tools/</loc>
     
     <lastmod>2019-08-13T03:39:09.305Z</lastmod>
@@ -103,13 +117,6 @@
     <loc>http://fech.in/categories/index.html</loc>
     
     <lastmod>2019-04-04T06:19:37.190Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fech.in/whoami/index.html</loc>
-    
-    <lastmod>2019-02-19T10:24:52.458Z</lastmod>
     
   </url>
   
