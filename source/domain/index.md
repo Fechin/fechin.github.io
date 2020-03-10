@@ -4,7 +4,10 @@ date: 2020-03-10 08:44:12
 ---
 
 
-- 以下是目前准备出售的域名，有意者请联系我，邮箱：mr.fechin@gmail.com
+以下是目前准备出售的域名，有意者请[联系我](mailto:mr.fechin@gmail.com?subject=[Domain]%20)
+
+
+
 | 域名               | 说明                                                                                                         |
 |------------------|------------------------------------------------------------------------------------------------------------|
 | natufian.com     | 纳图夫人，The Epipaleolithic Natufian culture existed from around 12,500 to 9,500 BC in the Levant              |
