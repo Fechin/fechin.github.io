@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ubuntu Burg 引导之打开电脑的那一刻 - 常也</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="
+Burg 是一款帮助你在开机时选择操作系统的精简版应用程序，具有一个高度可扩展的菜单系统，可选择文本和图形模式。简而言之，Burg 可广泛定制，有很多免费的 Burg 主题。软件支持各类操作系统，,"> 
+    <meta name="author" content="Fechin"> 
+    <link rel="alternative" href="atom.xml" title="常也" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Ubuntu Burg 引导之打开电脑的那一刻 - 常也"/>
+    <meta name="twitter:description" content="
+Burg 是一款帮助你在开机时选择操作系统的精简版应用程序，具有一个高度可扩展的菜单系统，可选择文本和图形模式。简而言之，Burg 可广泛定制，有很多免费的 Burg 主题。软件支持各类操作系统，,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="常也"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="Ubuntu Burg 引导之打开电脑的那一刻 - 常也"/>
+    <meta property="og:description" content="
+Burg 是一款帮助你在开机时选择操作系统的精简版应用程序，具有一个高度可扩展的菜单系统，可选择文本和图形模式。简而言之，Burg 可广泛定制，有很多免费的 Burg 主题。软件支持各类操作系统，,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">常也</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://fech.in"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Ubuntu Burg 引导之打开电脑的那一刻</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Ubuntu Burg 引导之打开电脑的那一刻</h1>
+        <div class="stuff">
+            <span>十一月 14, 2012</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Burg/" rel="tag">Burg</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%BC%95%E5%AF%BC/" rel="tag">引导</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p><img src="/static/images/burg-preview.jpg" alt="enter image description here"></p>
+<p><a target="_blank" rel="noopener" href="https://code.google.com/archive/p/burg/downloads">Burg</a> 是一款帮助你在开机时选择操作系统的精简版应用程序，具有一个高度可扩展的菜单系统，可选择文本和图形模式。简而言之，Burg 可广泛定制，有很多免费的 Burg 主题。软件支持各类操作系统，如 Linux、Windows、OSX、Solaris、FreeBSD 等。如果你装有多个操作系统，开机选择系统的同时能根据自定义主题展示，Burg 一定是你不错的选择。下面我在 Ubuntu12.10 下是如何安装 Burg 的，上图便是预览效果。</p>
+<h3 id="安装-Burg"><a href="#安装-Burg" class="headerlink" title="安装 Burg"></a>安装 Burg</h3><p>添加 Burg 源 (vim  /etc/apt/sources.list)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deb http://ppa.launchpad.net/bean123ch/burg/ubuntu karmic main</span><br><span class="line">deb-src http://ppa.launchpad.net/bean123ch/burg/ubuntu karmic main</span><br></pre></td></tr></table></figure>
+<p>更新软件仓库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+<p>导入证书</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gpg --keyserver subkeys.pgp.net --recv 55708F1EE06803C5</span><br><span class="line">gpg --export --armor 55708F1EE06803C5 | sudo apt-key add -</span><br></pre></td></tr></table></figure>
+<p>安装 burg 和 burg-themes（推荐用新立德搜索”Burg”并安装，安装过程中会弹出选择框默认即可）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install burg burg-themes burg-emu</span><br></pre></td></tr></table></figure>
+<p>这样，安装就完全结束了。可以用下面这条命令预览效果，预览状态下不能设置，重启进入启动项后可以按 <code>F2</code> 更换主题，<code>F3</code> 修改分辨率，更多快捷键请查看帮助。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">burg-emu</span><br></pre></td></tr></table></figure>
+<p>如果到这里你还没安装成功，不妨试试<a href="https://fech.in/2012/install-burg-on-ubuntu-manual/">手动安装 Burg</a>。</p>
+<h3 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h3><p>默认的主题除了够用外，没有给人眼前一亮的效果，所以选择一款喜欢喜欢喜欢的主题才能凸显 Burg 的价值，个人比较喜欢 Fortune-BURG 也是我一直在用的一款主题。开始安装，解压主题文件到 <code>/boot/burg/themes</code> 目录下，执行下面的 <code>sudo update-burg</code> 重新配置 Burg。OK，这个时候就可以在终端输入 <code>burg-emu</code> 进行预览，如果希望今后使用一直使用这个主题需要重启设置主题为 Fortune。</p>
+<p>在安装过程中，如果出现错误，可以试试手动安装 Burg 的 mbr（主引导记录），执行 <code>sudo burg-install &quot;(hd0)&quot;</code> 即可。或执行 <code>sudo dpkg-reconfigure burg-pc</code> 重新配置 Burg</p>
+<p>以后启动项如果有变动，比如装了新内核删了旧内核，加入新主题等，需执行 <code>sudo update-burg</code> 更新 Burg 引导。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="https://link.hhtjim.com/163/33162226.mp3">
+            </audio>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="false"
+        data-ci="a396afe529734b15300f"
+        data-cs="0ae7c1790f9a5cbc2b7339c12a82d58fe58f9567"
+        data-r="fechin.github.io"
+        data-o="Fechin"
+        data-a="Fechin"
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-69833742-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-69833742-2');
+</script>
+<!-- End Google Analytics -->
+
+
+</html>

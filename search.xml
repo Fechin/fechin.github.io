@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>5 个相见恨晚的 Linux 命令 - 终端之美</title>
+    <url>/2017/5-linux-command-surprised/</url>
+    <content><![CDATA[<h3 id="tldr（命令手册）"><a href="#tldr（命令手册）" class="headerlink" title="tldr（命令手册）"></a>tldr（命令手册）</h3><p>作为一个开发人员，会时常用到终端命令，最让人头疼的是记不住繁琐的参数。用谷哥度娘检索效率低下；通过<code>man</code>查看帮助，超长文章不易阅读。</p>
+<p><code>tldr</code>命令正是解决这一痛点，<code>tldr</code>是什么？从它的 GitHub 页翻译说“一个简洁的社区驱动的帮助手册”，这是对它最好的解释，根据二八原则给出命令的常用场景示例，简单易读；存放在 Github 上的命令库接受来自五湖四海的朋友提交的内容，社区驱动。</p>
+<p><code>man</code>命令有更详细的说明，单从实用角度讲，<code>tldr</code>才是王者。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">fechinwork <span class="keyword">in</span> ~/Desktop at 11:57:57 λ tldr tar</span><br><span class="line"></span><br><span class="line">tar</span><br><span class="line"></span><br><span class="line">Archiving utility.</span><br><span class="line">Often combined with a compression method, such as gzip or bzip.</span><br><span class="line"></span><br><span class="line">- Create an archive from files:</span><br><span class="line">    tar cf target.tar file1 file2 file3</span><br><span class="line"></span><br><span class="line">- Create a gzipped archive:</span><br><span class="line">    tar czf target.tar.gz file1 file2 file3</span><br><span class="line"></span><br><span class="line">- Extract an archive <span class="keyword">in</span> a target folder:</span><br><span class="line">    tar xf source.tar -C folder</span><br><span class="line"></span><br><span class="line">- Extract a gzipped archive <span class="keyword">in</span> the current directory:</span><br><span class="line">    tar xzf source.tar.gz</span><br><span class="line"></span><br><span class="line">- Extract a bzipped archive <span class="keyword">in</span> the current directory:</span><br><span class="line">    tar xjf source.tar.bz2</span><br><span class="line"></span><br><span class="line">- Create a compressed archive, using archive suffix to determine the compression program:</span><br><span class="line">    tar caf target.tar.xz file1 file2 file3</span><br><span class="line"></span><br><span class="line">- List the contents of a tar file:</span><br><span class="line">    tar tvf source.tar</span><br></pre></td></tr></table></figure>
+
+<p>小提示：支持在进 20 中语言环境下运行，通过<code>tldr --update</code>更新本地命令库。</p>
+<h3 id="tree（树形目录）"><a href="#tree（树形目录）" class="headerlink" title="tree（树形目录）"></a>tree（树形目录）</h3><p>当我们编写项目文档，想更直观的表达项目结构及内容的时候，这个小小的命令就可以派上用场了，它以类似于图像的树状图排列目录和文件。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">fechinwork <span class="keyword">in</span> ~/work/script/nginx2mysql at 12:43:10 λ tree -L 2</span><br><span class="line">.</span><br><span class="line">├── README.md</span><br><span class="line">├── config.yml</span><br><span class="line">├── libs</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   ├── __init__.pyc</span><br><span class="line">│   ├── nginx_log_parser.py</span><br><span class="line">│   ├── nginx_log_parser.pyc</span><br><span class="line">│   ├── simplemysql.py</span><br><span class="line">│   └── simplemysql.pyc</span><br><span class="line">├── logs</span><br><span class="line">│   └── cdn-2016-06-04.log</span><br><span class="line">├── parser.py</span><br><span class="line">└── requirements.txt</span><br><span class="line"></span><br><span class="line">2 directories, 11 files</span><br></pre></td></tr></table></figure>
+
+<p>小提示：支持定制层级，过滤内容等各种个性化设置。通过<code>tldr tree</code>查看具体使用示例。添加<code>-N</code>参数解决中文乱码问题。</p>
+<h3 id="rlwrap（历史命令）"><a href="#rlwrap（历史命令）" class="headerlink" title="rlwrap（历史命令）"></a>rlwrap（历史命令）</h3><p>经常使用命令的同学一定有习惯，通过上下按键切换历史命令，但是让人头疼的是<code>telnet</code>命令不支持切换，甚至是退格删除，所以时常遇到如下尴尬场面。莫急，<code>rlwrap</code>便是用来解决这一痛点的。</p>
+<p>通过<code>telnet</code>执行 Dubbo 接口：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt; telnet 192.168.1.147 23457</span><br><span class="line">&gt; invoke com.yinyuetai.yuan.user.api.UserService.get(1) &gt; ^[[A^[[A^[[A^[[B^[[B</span><br><span class="line"><span class="comment"># 好尴尬~</span></span><br></pre></td></tr></table></figure>
+<p>通过<code>telnet</code>连接 memcached 服务器：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt; telnet 192.168.1.36 11211 &gt; ^[[A^[[A^[[A^[[B^[[B</span><br><span class="line"><span class="comment"># 好尴尬~</span></span><br></pre></td></tr></table></figure>
+<p>什么是<code>rlwrap</code>？它是基于 readline 库，实现命令行补全和记录的包装命令。如今交互式输入是最基本的需求，Linux 正是通过 readline 这个库来记录用户的操作，实现交互式输入、自动补全、搜索等功能。对于没有支持 readline 操作的命令，<code>rlwrap</code>就是最好的伙伴了。</p>
+<p>用法：在执行<code>telnet</code>命令前加上 rlwrap 命令即可。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">fechinwork <span class="keyword">in</span> ~/Documents at 14:43:15 λ</span><br><span class="line">fechinwork <span class="keyword">in</span> ~/Documents at 14:43:41 λ rlwrap telnet 127.0.0.1 6379</span><br><span class="line">Trying 127.0.0.1...</span><br><span class="line">Connected to localhost.</span><br><span class="line">Escape character is <span class="string">&#x27;^]&#x27;</span>.</span><br><span class="line"><span class="built_in">set</span> product alpha</span><br><span class="line">+OK</span><br><span class="line">get prod</span><br><span class="line">$-1</span><br><span class="line">get product</span><br><span class="line"><span class="variable">$5</span></span><br><span class="line">alpha</span><br></pre></td></tr></table></figure>
+<p>小提示：除了<code>telnet</code>还有 Oracle 系列命令需要支持 rlwrap 包装装<code>sqlplus</code>、<code>rman</code>、<code>asmcmd</code><br>快捷别名：<code>alias telnet=&#39;rlwrap telnet&#39;</code></p>
+<h3 id="script（记录会话输出）"><a href="#script（记录会话输出）" class="headerlink" title="script（记录会话输出）"></a>script（记录会话输出）</h3><p>很多时候，为了安全和备份，需要对工作内容进行保存。那么，<code>script</code>命令就是隐藏在终端的记录器，它可以记录终端会话的所有内容，形成文件。对于需要工作留痕的同学来说，<code>script</code>便是良药。<br>如何使用，用<code>script</code>启动它，此时它已经开始记录。完事后用<code>exit</code>退出记录，默认生成了一个叫“typescript”的文件。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">fechinwork <span class="keyword">in</span> ~ at 13:34:04 λ script</span><br><span class="line">Script started, output file is typescript</span><br><span class="line">fechinwork <span class="keyword">in</span> ~ at 13:34:07 λ <span class="built_in">echo</span> <span class="string">&#x27;导演，开始了吗？&#x27;</span></span><br><span class="line">导演，开始了吗？</span><br><span class="line">fechinwork <span class="keyword">in</span> ~ at 13:34:27 λ <span class="built_in">echo</span> <span class="string">&#x27;你退出自己看咯，略略~&#x27;</span></span><br><span class="line">你退出自己看咯，略略~</span><br><span class="line">fechinwork <span class="keyword">in</span> ~ at 13:34:48 λ <span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line">Script <span class="keyword">done</span>, output file is typescript</span><br><span class="line">fechinwork <span class="keyword">in</span> ~ at 13:34:51 λ cat typescript</span><br><span class="line">Script started on Sat Oct 21 13:34:06 2017</span><br><span class="line">fechinwork <span class="keyword">in</span> ~ at 13:34:07 λ <span class="built_in">echo</span> <span class="string">&#x27;导演，开始了吗？&#x27;</span></span><br><span class="line">导演，开始了吗？</span><br><span class="line">fechinwork <span class="keyword">in</span> ~ at 13:34:27 λ <span class="built_in">echo</span> <span class="string">&#x27;你退出自己看咯，略略~&#x27;</span></span><br><span class="line">你退出自己看咯，略略~</span><br><span class="line">fechinwork <span class="keyword">in</span> ~ at 13:34:48 λ <span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line">Script <span class="keyword">done</span> on Sat Oct 21 13:34:51 2017</span><br></pre></td></tr></table></figure>
+<p>小提示：<code>script</code>可以在什么场景下使用呢？<br>1、我需要把大批量视频推送到 CDN，耗时一晚上，这时通过<code>script</code>记录执行的日志，第二天对没有推送成功的做单独处理。<br>2、别人远程你的服务器或电脑，安全起见<code>script</code>一下。<br>3、与同事协同工作时，自己工作做了一半，交给另一个人来做，此时发给它你的<code>script</code>，让它接着干。<br>……</p>
+<h3 id="autojump（一键直达）"><a href="#autojump（一键直达）" class="headerlink" title="autojump（一键直达）"></a>autojump（一键直达）</h3><p>最后一个压轴神器，也是我用的最多的命令之一。</p>
+<p>相信多数终端用户使用频率最高的命令是<code>cd</code>、<code>ls</code>, 在我不知道切换到哪里的时候不得不<code>ls</code>确认目录名，如此反复，到达想去的目录可能要经历几次甚至十次以上的 cd，经历了多少风雨才找到我的文件。俗话说“不会偷懒的程序员不是好程序员”，如此饱受挫折那是我们的风格，于是有了 autojump 的诞生，它注定不凡。<br>顾名思义，autojump，自动跳转，而不是切换，因为它可以做到一键直达。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">fechinwork <span class="keyword">in</span> ~/work/script/xls2sql at 14:27:24 λ j Des</span><br><span class="line">/Users/fechinwork/Desktop</span><br><span class="line">fechinwork <span class="keyword">in</span> ~/Desktop at 14:27:27 λ <span class="built_in">pwd</span></span><br><span class="line">/Users/fechinwork/Desktop</span><br><span class="line">fechinwork <span class="keyword">in</span> ~/Desktop at 14:27:31 λ j Docu</span><br><span class="line">/Users/fechinwork/Documents</span><br><span class="line">fechinwork <span class="keyword">in</span> ~/Documents at 14:27:41 λ <span class="built_in">pwd</span></span><br><span class="line">/Users/fechinwork/Documents</span><br><span class="line">fechinwork <span class="keyword">in</span> ~/Documents at 14:27:44 λ</span><br></pre></td></tr></table></figure>
+<p>小提示：可以通过<code>j -s</code>命令查看它的数据库，以及数据库中的目录权重。</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>命令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何将 Excel 转换成 Markdown 表格</title>
+    <url>/2019/convert-excel-to-markdown-table/</url>
+    <content><![CDATA[<p><img src="/static/images/excel-to-markdown.jpeg" alt="在线将 Excel 转换为 Markdown 表格"></p>
+<p>在这篇文章中，我将告诉你如何快速的将 Excel 转换为 markdown 表格，以及如何将 Google Docs，Numbers，网页中的表格或其他类似 Excel 的程序数据转换为 Markdown 表格。</p>
+<p>你可能有许多原因需要 Excel 表格的 Markdown 表示法：</p>
+<ol>
+<li>要将 Excel 内容插入 Markdown 文章中</li>
+<li>要将 Excel 内容上传至 Github gist</li>
+<li>Excel 内容很大，手动转换为 Markdown 费事，容易出错</li>
+<li>…. 等等</li>
+</ol>
+<p>在这种情况下，你只需复制 Excel 工作表，然后将其粘贴到“tableconvert.com”。你可以非常轻松地获得对应的 Markdown 表格语法，实现一键转换，几乎不需要花费太多时间。</p>
+<p>这是一个教你如何逐步将 Excel 转换为 Markdown 语法的最佳指南的视频。 <a href="https://youtu.be/2h0A_ZXLtrM">去 Youtube 观看</a></p>
+<h3 id="Excel-转换为-Markdown-步骤"><a href="#Excel-转换为-Markdown-步骤" class="headerlink" title="Excel 转换为 Markdown 步骤"></a>Excel 转换为 Markdown 步骤</h3><p><strong>步骤 1.</strong> 首先，使用浏览器打开 <a href="https://tableconvert.com/">https://tableconvert.com</a></p>
+<p><strong>步骤 2.</strong> 单击菜单栏中的<code>Import</code>按钮，切换到<code>Excel</code>选项卡。在导入窗口中，你可以看到如下提示：</p>
+<blockquote>
+<p>Paste your cells from Excel, Numbers, Google Docs or Browser table</p>
+</blockquote>
+<p><strong>步骤 3.</strong> 如上所述，从 Excel（或其他电子表格程序）复制一系列单元格并将其粘贴到文本框中，单击<code>Import Data</code>按钮。</p>
+<p><strong>步骤 4.</strong> 现在，从 Excel 复制的内容已导入网站并自动转换为 Markdown 表格，你只需要确保在输出区域中选择的选项卡是<code>Markdown</code>。</p>
+<p>单击<code>Copy</code>按钮将结果复制到剪贴板。单击<code>Download</code>按钮将 Markdown 文件下载到本地。拿到对应 Excel 表格的 Markdown 后，你可以在文档中使用该文本。</p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Excel</tag>
+        <tag>Markdown</tag>
+        <tag>Converter</tag>
+        <tag>Table</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>用模板的思路实现 Excel 导出</title>
+    <url>/2018/export-excel-use-template/</url>
+    <content><![CDATA[<p><img src="/static/images/icourt/wechat/1531520045411_.pic.jpg"></p>
+<hr>
+<p>Alpha 系统中的任务导出功能，第一版引用了经典的 Excel 操作工具 Apache POI。在第二版需求中，产品对样式进行了调整，内容更加直观，POI 提供了灵活多样的方法来处理 Excel，但是，每次样式的改变带来的都是代码修改。</p>
+<p>POI 把 Excel 封装成了 Java 对象，对 Excel 的修改不得不调用内部方法一一设置，尽管方法库比较丰富，基本满足业务需求，但是，性能、扩展以及易用性方面都有待考证，是否还有更好的办法实现 Excel 导出功能？</p>
+<p>对于样式的设置和修改，最好的方法当然是不修改。如果用模板加自定义语法来实现，达到使用者不需要关心样式设置，并且可以不懂 POI，只需要了解基本的语法即可完成一个 Excel 导出，相比 POI 性能是否有所提升？下文，我们一起来实施这个方案。</p>
+<h3 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h3><p>在此之前，需要了解 Excel xlsx 格式的文件结构，Excel 文件使用 OOXML（Open Office XML）文件格式，这是微软为 Office 2007 产品开发的技术规范，一个开放文档格式标准。Excel 以熟悉的 XML 为存储语言，了解内部结构有助于对 xlsx 进行深度定制，下图是一个较为全面的 Excel 元素集合。</p>
+<p><img src="/static/images/icourt/wechat/006tKfTcly1fktlxunqd0j30dw0fnta4.jpg" alt="xlsx 文件组成"></p>
+<hr>
+<p>xlsx 文件实际上是一个压缩的 XML 文件集合，包含元数据、媒体和图片等文件，开发者可以方便地查看和编辑 Excel 工作簿的结构内容，我们把它看做 zip 压缩包，通过 <code>unzip</code> 命令解压得到如下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Archive:  template.xlsx</span><br><span class="line"> ----------------------------------------------</span><br><span class="line">├── [Content_Types].xml -------- 内容类型</span><br><span class="line">├── _rels</span><br><span class="line">│   └── .rels ----------------- 关系配置</span><br><span class="line">├── docProps</span><br><span class="line">│   ├── app.xml --------------- 扩展属性</span><br><span class="line">│   └── core.xml -------------- 核心属性</span><br><span class="line">└── xl ------------------------- Excel 实际内容</span><br><span class="line">    ├── _rels</span><br><span class="line">    │   └── workbook.xml.rels</span><br><span class="line">    ├── sharedStrings.xml ------ 内容数据库</span><br><span class="line">    ├── styles.xml ------------- 单元格样式</span><br><span class="line">    ├── theme</span><br><span class="line">    │   └── theme1.xml -------- 主题样式</span><br><span class="line">    ├── workbook.xml ----------- 工作表</span><br><span class="line">    └── worksheets</span><br><span class="line">        ├── sheet1.xml --------- 第一个工作表</span><br><span class="line">        └── sheet2.xml --------- 第二个工作表</span><br><span class="line"></span><br><span class="line">6 directories, 12 files</span><br></pre></td></tr></table></figure>
+<hr>
+<p>xl/worksheets/sheet{n}.xml 文件包含了工作表的行、列、合并的单元格以及单元格其它特征。每个工作表对应一个 sheet.xml，文件名序号<code>n</code>从 1 开始，它是实现方案的重要文件。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">worksheet</span> <span class="attr">...</span> &gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">cols</span>&gt;</span><span class="comment">&lt;!-- 列集合 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">col</span> <span class="attr">min</span>=<span class="string">&quot;1&quot;</span> <span class="attr">max</span>=<span class="string">&quot;1&quot;</span> <span class="attr">width</span>=<span class="string">&quot;5&quot;</span> <span class="attr">...</span> /&gt;</span></span><br><span class="line">    ...</span><br><span class="line">  <span class="tag">&lt;/<span class="name">cols</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">sheetData</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">row</span> <span class="attr">r</span>=<span class="string">&quot;1&quot;</span> <span class="attr">spans</span>=<span class="string">&quot;1:10&quot;</span> <span class="attr">...</span> /&gt;</span><span class="comment">&lt;!-- 行数据 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">c</span> <span class="attr">r</span>=<span class="string">&quot;B1&quot;</span> <span class="attr">s</span>=<span class="string">&quot;21&quot;</span> <span class="attr">t</span>=<span class="string">&quot;s&quot;</span>&gt;</span><span class="comment">&lt;!-- cell：一个单元格 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">v</span>&gt;</span>11<span class="tag">&lt;/<span class="name">v</span>&gt;</span><span class="comment">&lt;!-- value：内容下标，见 sharedStrings.xml --&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">c</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">c</span> <span class="attr">r</span>=<span class="string">&quot;C1&quot;</span> <span class="attr">s</span>=<span class="string">&quot;21&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">row</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">sheetData</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mergeCells</span> <span class="attr">count</span>=<span class="string">&quot;6&quot;</span>&gt;</span><span class="comment">&lt;!-- 合并单元格集合 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mergeCell</span> <span class="attr">ref</span>=<span class="string">&quot;B6:J6&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">mergeCells</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">worksheet</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>xl/sharedStrings.xml 存储工作表中出现的字符串。Excel 为了节省空间，每一个相同的字符只会保存一次。一个<code>&lt;si&gt;</code>（SharedStringItem）标签代表一个内容，从 0 开始， 被 sheet.xml 中的<code>&lt;v&gt;</code>（value）标签引用，程序中可以把 sharedStrings.xml 解析成一个 List 集合，集合下标也是引用下标。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">sst</span> <span class="attr">...</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">si</span>&gt;</span><span class="comment">&lt;!-- SharedStringItem：字符内容条目 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">t</span>&gt;</span>状态<span class="tag">&lt;/<span class="name">t</span>&gt;</span><span class="comment">&lt;!-- Text：具体内容 --&gt;</span></span><br><span class="line">    ...</span><br><span class="line">  <span class="tag">&lt;/<span class="name">si</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">si</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">t</span>&gt;</span>任务详情<span class="tag">&lt;/<span class="name">t</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">  <span class="tag">&lt;/<span class="name">si</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">si</span>&gt;</span><span class="comment">&lt;!-- 在根节点 sst 中的顺序作为引用下标 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">t</span>&gt;</span>任务附件<span class="tag">&lt;/<span class="name">t</span>&gt;</span></span><br><span class="line">   ...</span><br><span class="line">  <span class="tag">&lt;/<span class="name">si</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">sst</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h3><p>sheet.xml 和 sharedStrings.xml 是存储内容的关键文件，是我们需要修改的地方。设置单元格的值有两种方法，一种是官方默认用下标从 sharedStrings 文件中获取，支持压缩；另一种是采取内联字符串的方式将文本放在<code>t</code>标签。</p>
+<ol>
+<li>默认：<code>&lt;c r=&quot;B1&quot; s=&quot;21&quot; t=&quot;s&quot;&gt;&lt;v&gt;11&lt;/v&gt;&lt;/c&gt;</code></li>
+<li>内联：<code>&lt;c r=&quot;B1&quot; s=&quot;21&quot; t=&quot;inlineStr&quot;&gt;&lt;is&gt;&lt;t&gt;任务名称&lt;/t&gt;&lt;/is&gt;&lt;/c&gt;</code></li>
+</ol>
+<p>我们采取内联方式，内容直接存储在单元格标签里，也就是说可以抛弃 sharedStrings.xml 文件，视它不存在。把 sheet.xml 文件人工转换成 sheet.ftl 模板文件，渲染 sheet.ftl 并打包到目标 xlsx 即可导出一个完整的 Excel。</p>
+<p>以上，美中不足的是需要解压 xlsx 模板文件，提取并修改 sheet.xml 为模板文件，稍有不慎可能会格式错乱，牵一发而动全身，使用过程复杂，违背了方案的初衷。</p>
+<p>以用户的角度出发，在 Excel 文档中设置标记语法，可视化编辑，通过代码逻辑实现模板转换、生成和替换，完成内容渲染和导出。一切，交给程序，如图右方案。<br><img src="/static/images/icourt/wechat/excel-export-scheme-contrast.png" alt="方案对比"></p>
+<h3 id="公式分解"><a href="#公式分解" class="headerlink" title="公式分解"></a>公式分解</h3><p><img src="/static/images/icourt/wechat/Jietu20180315-175600.jpg" alt="转化成公式"></p>
+<p>如图，<code>#</code>号作为公式的标识，可能在公式的前后以及内容中间出现，目前只实现了 Freemarker 模板语法对接，后期可以支持多种模板引擎，如常用的 Velocity，Thymeleaf。</p>
+<p><code>#</code>号中间的公式参考 Freemarker 语法</p>
+<table>
+<thead>
+<tr>
+<th>公式</th>
+<th>实例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>#xxx#</td>
+<td>#matterName!#</td>
+<td>字符串、数字等值</td>
+</tr>
+<tr>
+<td>#xxx.xx#</td>
+<td>#tasks.attendeesStr!#</td>
+<td>对象属性值</td>
+</tr>
+<tr>
+<td>#xxx.xxx?string(‘’,’’)#</td>
+<td>#taskGroups.state?string(‘已完成’,’未完成’)#</td>
+<td>取值并判断，参考 Freemarker 语法</td>
+</tr>
+<tr>
+<td>#loopTo#n#</td>
+<td>#loopTo#8#taskGroups.tasks.name!#</td>
+<td>1. 循环取值<br>2.loopTo 表示开始循环<br>3. 数字 8 表示到第几行停止循环<br>4. 支持嵌套循环</td>
+</tr>
+</tbody></table>
+<h3 id="导出效果"><a href="#导出效果" class="headerlink" title="导出效果"></a>导出效果</h3><p><img src="/static/images/icourt/wechat/Jietu20180302-164141.jpg" alt="导出后效果"></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Excel</tag>
+        <tag>方案</tag>
+        <tag>导出</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu Burg 引导之打开电脑的那一刻</title>
+    <url>/2012/install-burg-on-ubuntu/</url>
+    <content><![CDATA[<p><img src="/static/images/burg-preview.jpg" alt="enter image description here"></p>
+<p><a href="https://code.google.com/archive/p/burg/downloads">Burg</a> 是一款帮助你在开机时选择操作系统的精简版应用程序，具有一个高度可扩展的菜单系统，可选择文本和图形模式。简而言之，Burg 可广泛定制，有很多免费的 Burg 主题。软件支持各类操作系统，如 Linux、Windows、OSX、Solaris、FreeBSD 等。如果你装有多个操作系统，开机选择系统的同时能根据自定义主题展示，Burg 一定是你不错的选择。下面我在 Ubuntu12.10 下是如何安装 Burg 的，上图便是预览效果。</p>
+<h3 id="安装-Burg"><a href="#安装-Burg" class="headerlink" title="安装 Burg"></a>安装 Burg</h3><p>添加 Burg 源 (vim  /etc/apt/sources.list)</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deb http://ppa.launchpad.net/bean123ch/burg/ubuntu karmic main</span><br><span class="line">deb-src http://ppa.launchpad.net/bean123ch/burg/ubuntu karmic main</span><br></pre></td></tr></table></figure>
+<p>更新软件仓库</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+<p>导入证书</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gpg --keyserver subkeys.pgp.net --recv 55708F1EE06803C5</span><br><span class="line">gpg --export --armor 55708F1EE06803C5 | sudo apt-key add -</span><br></pre></td></tr></table></figure>
+<p>安装 burg 和 burg-themes（推荐用新立德搜索”Burg”并安装，安装过程中会弹出选择框默认即可）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install burg burg-themes burg-emu</span><br></pre></td></tr></table></figure>
+<p>这样，安装就完全结束了。可以用下面这条命令预览效果，预览状态下不能设置，重启进入启动项后可以按 <code>F2</code> 更换主题，<code>F3</code> 修改分辨率，更多快捷键请查看帮助。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">burg-emu</span><br></pre></td></tr></table></figure>
+<p>如果到这里你还没安装成功，不妨试试<a href="https://fech.in/2012/install-burg-on-ubuntu-manual/">手动安装 Burg</a>。</p>
+<h3 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h3><p>默认的主题除了够用外，没有给人眼前一亮的效果，所以选择一款喜欢喜欢喜欢的主题才能凸显 Burg 的价值，个人比较喜欢 Fortune-BURG 也是我一直在用的一款主题。开始安装，解压主题文件到 <code>/boot/burg/themes</code> 目录下，执行下面的 <code>sudo update-burg</code> 重新配置 Burg。OK，这个时候就可以在终端输入 <code>burg-emu</code> 进行预览，如果希望今后使用一直使用这个主题需要重启设置主题为 Fortune。</p>
+<p>在安装过程中，如果出现错误，可以试试手动安装 Burg 的 mbr（主引导记录），执行 <code>sudo burg-install &quot;(hd0)&quot;</code> 即可。或执行 <code>sudo dpkg-reconfigure burg-pc</code> 重新配置 Burg</p>
+<p>以后启动项如果有变动，比如装了新内核删了旧内核，加入新主题等，需执行 <code>sudo update-burg</code> 更新 Burg 引导。</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Burg</tag>
+        <tag>引导</tag>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript 给 DOM 元素相同事件绑定多函数</title>
+    <url>/2013/javascript-dom-utils/</url>
+    <content><![CDATA[<h3 id="给-DOM-元素的同一事件绑定多个处理函数"><a href="#给-DOM-元素的同一事件绑定多个处理函数" class="headerlink" title="给 DOM 元素的同一事件绑定多个处理函数"></a>给 DOM 元素的同一事件绑定多个处理函数</h3><p>今天，同事问“一个 DOM 元素的同一事件如何绑定多个方法”，为什么这么问，因为在 javascript 中有一个规律，如果某元素的某事件多次赋值，那么只有最后一次赋值生效，如下代码将只弹出”second.”。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">document.body.onclick=function()&#123;</span><br><span class="line">	alert(&quot;first.&quot;);</span><br><span class="line">&#125;;</span><br><span class="line">document.body.onclick=function()&#123;</span><br><span class="line">	alert(&quot;second.&quot;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>说起这个问题，我首先想到的是 jQuery, 它的 <code>bind(type,[data],fn)</code> 方法可以实现同一事件函数叠加的效果，那么， js 如何实现呢？如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 给 DOM 元素的同一事件绑定多个方法</span><br><span class="line"> *</span><br><span class="line"> * @param &#123;Object&#125; obj	DOM 对象</span><br><span class="line"> * @param &#123;Object&#125; type 事件类型</span><br><span class="line"> * @param &#123;Object&#125; fn	处理函数</span><br><span class="line"> */</span><br><span class="line">function addEventFns(_obj,_type,_fn)&#123;</span><br><span class="line">	var oldEvent = _obj[_type];</span><br><span class="line">	if(typeof _obj[_type] == &quot;function&quot;)&#123;</span><br><span class="line">		_obj[_type] = function()&#123;</span><br><span class="line">			oldEvent();</span><br><span class="line">			_fn();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		_obj[_type] = _fn;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 Dom 节点加载完毕之后这样调用 <code>addEventFns(_obj,_type,_fn)</code></p>
+<ul>
+<li>_obj: 需要添加事件的 DOM 对象，比如：<code>document.getElementById(“container”)</code> 或 <code>document.body</code>;</li>
+<li>_type: 事件类型的字符串，比如：<code>onclick</code> 或 <code>onmouseover</code>;</li>
+<li>_fn: 绑定到 DOM 元素的事件上面的处理函数。<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">addEventFns(obj,&quot;onclick&quot;,function()&#123;</span><br><span class="line">		alert(&quot;Fired the event.&quot;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="项目中用到的一些工具函数"><a href="#项目中用到的一些工具函数" class="headerlink" title="项目中用到的一些工具函数"></a>项目中用到的一些工具函数</h3><p>公司 xx 项目就失业子系统变更 coding 告一段落，收获颇多，主要涉及校验，和业务的理解，可谓是循序渐进，环环相扣。coding 过程走火入魔算不上，但出入分明。总结几个常用 javascript 校验，菜鸟级别，仅供参考！</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 获取两个时间相差月数</span><br><span class="line"> *</span><br><span class="line"> * @param &#123;Object&#125; start 开始时间 (yyyy-MM)</span><br><span class="line"> * @param &#123;Object&#125; end   结束时间 (yyyy-MM)</span><br><span class="line"> * @return &#123;TypeName&#125;</span><br><span class="line"> */</span><br><span class="line">function getDiffOfMonth(start,end)&#123;</span><br><span class="line">	var diff;</span><br><span class="line">	if(start==&quot;&quot;||end==&quot;&quot;)&#123;</span><br><span class="line">		diff = &quot;&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	var startArr = start.split(&#x27;-&#x27;);</span><br><span class="line">	var endArr = end.split(&#x27;-&#x27;);</span><br><span class="line">	if(startArr[0]==endArr[0])&#123;</span><br><span class="line">		diff = endArr[1]-startArr[1];</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		diff = (endArr[0]-startArr[0])*12+(endArr[1]-startArr[1]);</span><br><span class="line">	&#125;</span><br><span class="line">	return Math.abs(diff)+1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 根据月份区间获取所有月份集合</span><br><span class="line"> *</span><br><span class="line"> * @param &#123;Object&#125; start 开始时间 (yyyy-MM)</span><br><span class="line"> * @param &#123;Object&#125; end   结束时间 (yyyy-MM)</span><br><span class="line"> * @return &#123;TypeName&#125;</span><br><span class="line"> */</span><br><span class="line">function getAllMonth(start, end) &#123;</span><br><span class="line">	var months = new Array(start);</span><br><span class="line">	var month = &quot;&quot;;</span><br><span class="line">	var length = getDiffOfMonth(start, end);</span><br><span class="line">	var start = start.split(&#x27;-&#x27;);</span><br><span class="line">	var end = end.split(&#x27;-&#x27;);</span><br><span class="line">	var temp;</span><br><span class="line">	for ( var i = 0; i &lt; length - 1; i++) &#123;</span><br><span class="line">		temp = new Date(start[0], parseInt(start[1]) + i);</span><br><span class="line">		month = new String(temp.getMonth() + 1).length == 1 ? &quot;0&quot;</span><br><span class="line">				+ (temp.getMonth() + 1) : (temp.getMonth() + 1);</span><br><span class="line">		months.push(temp.getFullYear() + &quot;-&quot; + month);</span><br><span class="line">	&#125;</span><br><span class="line">	return months;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 获取两个时间相差天数</span><br><span class="line"> *</span><br><span class="line"> * @param &#123;Object&#125; start 开始时间 (yyyy-MM-dd)</span><br><span class="line"> * @param &#123;Object&#125; end   结束时间 (yyyy-MM-dd)</span><br><span class="line"> * @return &#123;TypeName&#125;</span><br><span class="line"> */</span><br><span class="line">function getDiffOfDay(start,end)&#123;</span><br><span class="line">	var diff;</span><br><span class="line">	if(start==&quot;&quot;||end==&quot;&quot;)&#123;</span><br><span class="line">		diff = &quot;&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	diff = Math.abs(new Date(start)-new Date(end));</span><br><span class="line">	return diff/(1000*3600*24)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 一次性领取失业保险金明细记录唯一性校验</span><br><span class="line"> * 判重思路：循环数组各元素，如果在该数组出现两次则重复</span><br><span class="line"> * 关键方法：jQuery.inArray(value,array,[fromIndex])</span><br><span class="line"> *</span><br><span class="line"> * @return &#123;TypeName&#125;</span><br><span class="line"> */</span><br><span class="line">function ycxmxUnique() &#123;</span><br><span class="line">	var flag = true;</span><br><span class="line">	var length = $(&quot;[name=&#x27;lx&#x27;]&quot;).last().attr(&quot;id&quot;); // 最后一条明细的 id</span><br><span class="line">	var start = &quot;&quot;;</span><br><span class="line">	var end = &quot;&quot;;</span><br><span class="line">	var tempArr = new Array();</span><br><span class="line"></span><br><span class="line">	// 封装数组</span><br><span class="line">	for ( var i = 1; i &lt;= length; i++) &#123;</span><br><span class="line">		if (typeof ($(&quot;[name=&#x27;ksny&#x27;][id=&quot; + i + &quot;]&quot;).val()) == &quot;undefined&quot;) &#123;</span><br><span class="line">			continue;</span><br><span class="line">		&#125;</span><br><span class="line">		start = $(&quot;[name=&#x27;jsny&#x27;][id=&quot; + i + &quot;]&quot;).val();</span><br><span class="line">		end = $(&quot;[name=&#x27;ksny&#x27;][id=&quot; + i + &quot;]&quot;).val();</span><br><span class="line">		tempArr = tempArr.concat(getAllMonth(start, end));</span><br><span class="line">	&#125;</span><br><span class="line">	tempArr.sort();</span><br><span class="line">	// 判断重复</span><br><span class="line">	for ( var i = 0; i &lt; tempArr.length; i++) &#123;</span><br><span class="line">		if (tempArr[i].length == 7</span><br><span class="line">				&amp;&amp; jQuery.inArray(tempArr[i], tempArr, i + 1) &gt; -1) &#123;</span><br><span class="line">			alert(&quot;一次性返回年月有重复，请重新输入！&quot;);</span><br><span class="line">			flag = false;</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return flag;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu 12.10 手动安装 Burg 引导</title>
+    <url>/2012/install-burg-on-ubuntu-manual/</url>
+    <content><![CDATA[<p>一个月前在本本上装过 Burg，也是之前唯一一次在 Ubuntu12.10 安装成功，当时写了一篇文章叫 <a href="https://fech.in/2012/install-burg-on-ubuntu/">Ubuntu Burg 引导之打开电脑的那一刻</a>，之后多次重装，再也没有成功过，更新源错误提示</p>
+<blockquote>
+<p>无法下载“W: 无法下载 <a href="http://ppa.launchpad.net/n-muench/burg/ubuntu/dists/quantal/main/source/Sources">http://ppa.launchpad.net/n-muench/burg/ubuntu/dists/quantal/main/source/Sources</a> 404 Not Found”</p>
+</blockquote>
+<p>或是用 <code>sudo apt-get install burg burg-themes burg-emu</code> 安装时提示各种找不到。burg 那个性化的设置实在迷人，今天又开始折腾了，百度 Google 找教程无果，看来只能靠自己了。有时候为了实现我们想要的效果就要不择手段，生命不息，折腾不止！既然无法自动更新，那我手动。</p>
+<h3 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h3><p>从 Burg 的源站下载需要的文件，我用的 Ubuntu64 位系统，需要下面这些文件</p>
+<blockquote>
+<p>burg-common_1.98+20100623-1_amd64<br>burg-emu_1.98+20100623-1_amd64<br>burg-pc_1.98+20100623-1_amd64<br>burg-themes-common_1.98+20100623-1_all<br>burg-themes_1.98+20100623-1_all<br>burg_1.98+20100623-1_amd64</p>
+</blockquote>
+<p>记住了，按顺序执行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo dpkg -i &#x27;/home/thinkcu/Downloads/burg-common_1.98+20100623-1_amd64.deb&#x27;</span><br><span class="line">sudo dpkg -i &#x27;/home/thinkcu/Downloads/burg-emu_1.98+20100623-1_amd64.deb&#x27;</span><br><span class="line">安装 burg 的时有一个跟 libsdl1.2debian 的依赖关系，直接在终端修复依赖关系：</span><br><span class="line">sudo apt-get -f instal</span><br></pre></td></tr></table></figure>
+<p><img src="/static/images/install-burg-on-ubuntu-manual1.jpg" alt="enter image description here"></p>
+<p>安装第二步， 执行 <code>sudo dpkg -i &#39;/home/thinkcu/Downloads/burg-pc_1.98+20100623-1_amd64.deb&#39;</code> ，会弹出软件包设置的对话框，统统默认，按 Tab 健选定确定，回车即可！<br><img src="/static/images/install-burg-on-ubuntu-manual2.jpg" alt="enter image description here"><br><img src="/static/images/install-burg-on-ubuntu-manual3.jpg" alt="enter image description here"></p>
+<p>安装第三步，同样按顺序执行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo dpkg -i &#x27;/home/thinkcu/Downloads/burg-themes-common_1.98+20100623-1_all.deb&#x27;</span><br><span class="line">sudo dpkg -i &#x27;/home/thinkcu/Downloads/burg-themes_1.98+20100623-1_all.deb&#x27;</span><br><span class="line">sudo dpkg -i &#x27;/home/thinkcu/Downloads/burg_1.98+20100623-1_amd64.deb&#x27;</span><br></pre></td></tr></table></figure>
+<p>最后执行 <code>sudo burg-install /dev/sda</code> 或者 <code>sudo burg-install &quot;(hd0)&quot;</code> 设置手动安装 Burg 的 mbr（主引导记录）</p>
+<p><img src="/static/images/install-burg-on-ubuntu-manual4.jpg" alt="enter image description here"></p>
+<p>至此，大功告成，接下来可以用 <code>burg-emu</code> 查看当前配置，设置主题可以看前一个教程！刚开始我是在自己电脑上安装的，安装成功之后再给同学安装了一个，所有图片从同学小张那里截取的。</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Burg</tag>
+        <tag>引导</tag>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>机器学习基础</title>
+    <url>/2018/ml01-overview/</url>
+    <content><![CDATA[<p><img src="/static/images/ml01-start.jpeg" alt="开始学习机器学习"></p>
+<p>在没接触机器学习之前， 一提起机器学习，就会觉得深奥、难懂、一般人很难入门，貌似是科学家做的事情。真的是这样吗？事实却非如此，它并不要求计算机能像人一样有情感，也不会与计算机探讨人生的意义，更不会对你有非分之想。</p>
+<h4 id="何谓机器学习"><a href="#何谓机器学习" class="headerlink" title="何谓机器学习"></a>何谓机器学习</h4><p>有幸，有机会、有时间接触到大数据和机器学习。机器学习早在 20 世纪 50 年代到 60 年代就属于热烈时期，发展至今，机器学习已经应用于多个领域，远超出我们的想象。比较典型的应用有人脸识别，垃圾邮件过滤、商品推荐、天气预报、预测交通拥堵情况等等。</p>
+<p>我们还可以做更多有趣的事情，比如根据这篇文章最高词频预测文章在讲什么；根据爱好，性格推荐最合适的相亲对象。</p>
+<blockquote>
+<p>真正的有趣必然是你深深陷入了其中，或者你了解世界上的一切奥妙，试图探求世界的本质，或者你天马行空，又勇气可嘉，能用最好的技术去实现最美好的事。</p>
+</blockquote>
+<p>人们很难直接从海量数据获取关键信息，但可以告诉计算机用什么算法，去提炼和预测所需的点。<strong>简单的说，机器学习（Machine learning）就是把无序的数据转换成有用的信息</strong>。</p>
+<h4 id="机器学习算法"><a href="#机器学习算法" class="headerlink" title="机器学习算法"></a>机器学习算法</h4><p><img src="/static/images/ml01/ml_algorithm.jpg" alt="机器学习算法"></p>
+<p>机器学习领域中常用的有 10 几种算法，它们用于分类，回归，聚类，降维，其中分类和回归是监督学习，所谓<strong>监督学习（Supervised Learning），意为必须知道预测什么，即目标变量的分类信息</strong>。举个栗子，我收集了一批数据，数据中包含人体特征和分类标识男 / 女 / 其<br>它，用训练好的算法预测另一批带人体特征的性别分类，确认这批人是男是女。</p>
+<p>与监督学习相对应的是<strong>无监督学习（Unsupervised learning）</strong>，不得而知，它的数据没有类别信息。举个相反的栗子，我收集了一批数据，数据中只包含人体特征，并没有告诉计算机哪些是男，哪些是女，而是让它自己去判断和分类。总结出性别的差异。</p>
+<h4 id="开发步骤"><a href="#开发步骤" class="headerlink" title="开发步骤"></a>开发步骤</h4><p><img src="/static/images/ml01/ml_steps.jpg" alt="开发机器学习应用的步骤"></p>
+<p>开发大多数机器学习的应用通常遵循以下步骤：</p>
+<ol>
+<li>收集数据：可以是多种方法收集数据，如爬虫、数据生成器、公开数据集等。初学及测试算法建议使用公开数据源，具备一定的权威性，准确度高，节省时间，后续文章会有所涉及。</li>
+<li>准备数据：在程序中加载收集的数据，创建方便处理的数据对象，建议转换成 numpy 或 pandas 库支持的数据格式，它们支持灵活的矩阵处理和计算能力。</li>
+<li>分析数据：观察数据是否存在空值和无效内容，如果有条件，建议数据图形化，更直观的看到数据分布。在处理大量特征的复杂数据时，还需要对数据进行降维和归一化操作。</li>
+<li>训练算法：算法是机器学习的核心，相同的数据应用不同的算法会有不同的结果，选择合适的算法至关重要。这一步会把样本数据放到算法里进行训练，使得算法模型具备预测和判断能力。需要注意的是无监督学习没有训练过程。</li>
+<li>测试算法：也叫评估算法，测试算法的效果，算法的成功率、准确率。</li>
+<li>使用算法：将训练的算法模型转换成可执行应用，在实际业务场景中工作。</li>
+</ol>
+<h4 id="技术准备"><a href="#技术准备" class="headerlink" title="技术准备"></a>技术准备</h4><p>Python 是机器学习最受欢迎的语言之一，可以很方便的集成科学计算库、图表库，和其它语言相比，它更像是工具。建议使用 Python 3，Python 2 将在 2020 年停止维护。<a href="https://anaconda.org/">Anaconda</a> 是用于科学计算相关的 Python 发行版，为了节省时间，建议安装它快速上手，它集成了常用的机器学习相关库，下面几个库在机器学习中很重要，已经被集成在 Anaconda，建议学习一遍。</p>
+<ul>
+<li><a href="https://www.numpy.org/">numpy</a>：矩阵计算，多维数组</li>
+<li><a href="https://www.scipy.org/">scipy</a>：科学工具集</li>
+<li><a href="https://matplotlib.org/index.html">matplotlib</a>：强大的画图工具库</li>
+<li><a href="https://scikit-learn.org/stable/#">scikit-learn</a>：重点，高效的数据挖掘和数据分析工具，集成了机器学习中大多数算法，可直接使用</li>
+<li><a href="https://pandas.pydata.org/">pandas</a>：高效地操作大型数据集</li>
+</ul>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+        <tag>Python</tag>
+        <tag>基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Pandas 和 PySpark 的 DataFrame 相互转换</title>
+    <url>/2018/pyspark-and-pandas/</url>
+    <content><![CDATA[<p><img src="/static/images/PandasToSparkDataFrame/pyspark-pandas_cover5.jpg" alt="Pandas to PySpark"></p>
+<p>Pandas DataFrame 是一个二维数组，跟数据库中的 Table 或 Excel 很相似，底层使用 Numpy 和 array 存储，Numpy 使用 C 语言编写，运行速度很快。在 Python 语言中，它们是必不可少的机器学习库。</p>
+<p>因为 Pandas 的高效，实际开发中，我更多的会借助它做抽样数据分析，然而生产环境的数据量巨大，需要集群部署，所以生产环境用 Spark 全量运行。Spark 和 Pandas 都可以集成 SQL 能力，但它们支持的 SQL 规范不一致，为保持操作统一，我们可能会选择其中的一种规范，也就有了 Pandas 和 PySpark 数据结构的转换需求。</p>
+<h4 id="PySpark-DataFrame-转-Pandas-DataFrame"><a href="#PySpark-DataFrame-转-Pandas-DataFrame" class="headerlink" title="PySpark DataFrame 转 Pandas DataFrame"></a>PySpark DataFrame 转 Pandas DataFrame</h4><p>获取或创建 SparkSession</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在集群 UI 上展示的应用程序名称</span></span><br><span class="line">appName = <span class="string">&#x27;Spark2Pandas&#x27;</span></span><br><span class="line"><span class="comment"># 集群的 master URL，本地测试可以是“local”</span></span><br><span class="line">master = <span class="string">&#x27;local&#x27;</span></span><br><span class="line">spark = SparkSession.builder.appName(appName).master(master).getOrCreate()</span><br></pre></td></tr></table></figure>
+
+
+<p>初始化 Spark 上下文</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SQLContext</span><br><span class="line">sc = spark.sparkContext</span><br></pre></td></tr></table></figure>
+
+<p>生成测试数据</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">spf = sc.parallelize([(<span class="number">1</span>, <span class="string">&quot;foo&quot;</span>), (<span class="number">2</span>, <span class="string">&quot;bar&quot;</span>)]).toDF([<span class="string">&quot;id&quot;</span>, <span class="string">&quot;value&quot;</span>])</span><br><span class="line">spf.show()</span><br><span class="line"></span><br><span class="line">+---+-----+</span><br><span class="line">| <span class="built_in">id</span>|value|</span><br><span class="line">+---+-----+</span><br><span class="line">|  <span class="number">1</span>|  foo|</span><br><span class="line">|  <span class="number">2</span>|  bar|</span><br><span class="line">+---+-----+</span><br></pre></td></tr></table></figure>
+
+<p>PySpark 提供了 toPandas 方法，返回一个 Pandas DataFrame 对象，需要注意，不是所有的类型都可以 toPandas，目前尚不支持的数据类型有 ArrayType、 MapType，跟进问题处理进度请参考Jira <a href="https://issues.apache.org/jira/browse/SPARK-21187">SPARK-21187</a>。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pdf = spf.toPandas()</span><br><span class="line"><span class="built_in">print</span> pdf.head()</span><br><span class="line"></span><br><span class="line">	<span class="built_in">id</span> value</span><br><span class="line"><span class="number">0</span>   <span class="number">1</span>   foo</span><br><span class="line"><span class="number">1</span>   <span class="number">2</span>   bar</span><br></pre></td></tr></table></figure>
+
+<h5 id="空类型处理"><a href="#空类型处理" class="headerlink" title="空类型处理"></a>空类型处理</h5><p>在 PySpark 转 Pandas 之前，可能需要对数据做一些预处理，如修正数据，数据类型兼容等。下面这个例子是把空的 ArrayType、MapType 转换为 None。读者可举一反三，自行定制。另外，我们还可以通过Spark udf函数达到这个目的。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pyspark.sql.types <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> pyspark.sql.functions <span class="keyword">import</span> when, size, col, lit</span><br><span class="line"><span class="keyword">for</span> i, f <span class="keyword">in</span> <span class="built_in">enumerate</span>(spf.schema.fields):</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">isinstance</span>(f.dataType, ArrayType) \</span><br><span class="line">    <span class="keyword">or</span> <span class="built_in">isinstance</span>(f.dataType, MapType):</span><br><span class="line">        spf = spf.withColumn(f.name, when(size(col(f.name)) == <span class="number">0</span> , lit(<span class="literal">None</span>)).otherwise(col(f.name) ) )</span><br></pre></td></tr></table></figure>
+
+<h4 id="Pandas-DataFrame-转-PySpark-DataFrame"><a href="#Pandas-DataFrame-转-PySpark-DataFrame" class="headerlink" title="Pandas DataFrame 转 PySpark DataFrame"></a>Pandas DataFrame 转 PySpark DataFrame</h4><p>PySpark 的 <code>createDataFrame(data, schema=None, samplingRatio=None)</code> 非常强大，它不仅支持 RDD、Python 元组和列表作为输入，还可以是 Pandas DataFrame，其内部会自动进行转换，其原理可以参考下文PySpark实现原理部分。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sqlContext.createDataFrame(pdf)</span><br></pre></td></tr></table></figure>
+
+<h4 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h4><p>下面我们来看看 Pandas 和 PySpark 的 DataFrame 转换的性能，笔者使用的个人开发机，配置如下：</p>
+<blockquote>
+<p>MacBook Pro (Retina, 13-inch, Late 2013)<br>处理器：2.4 GHz Intel Core i5<br>内存：8 GB 1600 MHz DDR3</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n_rows = <span class="number">500000</span></span><br><span class="line">pdf = pd.DataFrame(np.random.randn(n_rows, <span class="number">20</span>))</span><br><span class="line">%time spf = sqlContext.createDataFrame(pdf)</span><br><span class="line"></span><br><span class="line">CPU times: user 1<span class="built_in">min</span> 32s, sys: <span class="number">1.08</span> s, total: 1<span class="built_in">min</span> 33s</span><br><span class="line">Wall time: 1<span class="built_in">min</span> 37s</span><br></pre></td></tr></table></figure>
+<p>当 Pandas DataFrame 行数为 n_rows ，列固定 20 ，将其转换为 PySpark DataFrame 耗时如下：</p>
+<p><img src="/static/images/PandasToSparkDataFrame/PandasToSparkDataFrame_withoutarrow_mini.jpg" alt="PySpark to Pandas"><br>随着行数的增加，越来越耗时，100w 条数据时耗时已经超过 200 秒，笔者也测试了从 PySpark DataFrame 到 Pandas DataFrame 的转换，耗时基本一致，时间都去哪儿了？</p>
+<h4 id="PySpark-实现原理"><a href="#PySpark-实现原理" class="headerlink" title="PySpark 实现原理"></a>PySpark 实现原理</h4><p>Spark 是由 JVM 语言实现，并且程序会运行在 JVM 之上，无论是 Python、R 还是其它语言实现的 Spark，都会间接的和 JVM 进行通信，获得处理海量数据的能力。<br><img src="/static/images/PandasToSparkDataFrame/PySpark2_mini.jpg" alt="Pandas to PySpark"></p>
+<p>Python 借助 Py4j 实现和 Java 的交互，一个 PySpark 程序启动时，会实例化 Python 版的 SparkContext 对象，这也是一个比较耗时的过程，其内部实现：</p>
+<ol>
+<li>实例化 Py4j GatewayClient，连接 JVM 中的 Py4j GatewayServer</li>
+<li>通过 Py4j Gateway 在 JVM 中实例化 SparkContext 对象</li>
+</ol>
+<p>以上，大概解释了为什么创建 SparkContext 慢的原因。那么，Pandas DataFrame 转 PySpark DataFrame 慢是为什么呢？原因有三：</p>
+<ol>
+<li>PySpark 并没有直接使用 Pandas DataFrame 的数据类型，而是试图推断数据。</li>
+<li>PySpark 不能使用高效的 NumPy 库，并且会迭代每一条记录，将记录中的值转换为 Python 对象。</li>
+<li>通过 Py4j 发送到 JVM 时，必须序列化成 pickle 格式，Spark 会通过单独的线程读取文件并转换成 Scala 类型。</li>
+</ol>
+<p>数据量大时，这一系列步骤将是非常耗时的过程。</p>
+<h4 id="使用-Arrow-提高转换速度"><a href="#使用-Arrow-提高转换速度" class="headerlink" title="使用 Arrow 提高转换速度"></a>使用 Arrow 提高转换速度</h4><p>从 Spark 2.3 开始，集成了 Apache Arrow 支持，Pandas DataFrame 可以高效地转换为 Arrow 数据并直接传输到 JVM 以创建 Spark DataFrame，性能会更好，不在需要类型推断，参考 <a href="https://issues.apache.org/jira/browse/SPARK-20791">SPARK-20791</a>。开启 Arrow 后的执行原理：</p>
+<ol>
+<li>根据默认并行数将 Pandas DataFrame 切片</li>
+<li>将每个 Pandas 切片转换为 Arrow RecordBatch</li>
+<li>将 schema 从 Arrow 转换为 Spark</li>
+<li>将 RecordBatchES 发送给 JVM，作为 JavaRDD[Array[Byte]]</li>
+<li>使用 Spark schema 包装 JavaRDD 并创建 DataFrame</li>
+</ol>
+<p>代码实现：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 也可以在 spark-defaults.conf 全局配置</span></span><br><span class="line">spark.conf.<span class="built_in">set</span>(<span class="string">&quot;spark.sql.execution.arrow.enabled&quot;</span>, <span class="string">&quot;true&quot;</span>)</span><br><span class="line"></span><br><span class="line">spf = spark.createDataFrame(pdDF)</span><br></pre></td></tr></table></figure>
+<p>如图，使用 Arrow 之后，测试 100w 条数据仅仅用了 1.2 秒<br><img src="/static/images/PandasToSparkDataFrame/PandasToSparkDataFrame_witharrow_mini.jpg" alt="PySpark to Pandas"></p>
+<p>跟不使用 Arrow 相比，差得不是一点半点啊，下图中的红线是使用 Arrow 的耗时，基本与 X 轴重合了，这么高的反差，笔者感到很惊讶。<br><img src="/static/images/PandasToSparkDataFrame/PandasToSparkDataFrame_twoline_mini.jpg" alt="PySpark to Pandas"></p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Pandas</tag>
+        <tag>PySpark</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tigase 集成预研</title>
+    <url>/2016/tigase-pre-research-1/</url>
+    <content><![CDATA[<h3 id="1-安装-Tigase-server"><a href="#1-安装-Tigase-server" class="headerlink" title="1. 安装 Tigase-server"></a>1. 安装 Tigase-server</h3><p>Tigase 支持多种安装方式， 包括 WEB UI 引导安装、Linux Console 安装、解压配置安装、Windows 程序安装等。这里以最便捷的安装方法<code>解压配置安装</code>为例。</p>
+<h4 id="1-1-安装环境"><a href="#1-1-安装环境" class="headerlink" title="1.1 安装环境"></a>1.1 安装环境</h4><p><code>Linux 非 Root 权限</code> <code>JDK1.8</code> <code>MySQL 及 Root 权限</code></p>
+<h4 id="1-2-开始安装"><a href="#1-2-开始安装" class="headerlink" title="1.2 开始安装"></a>1.2 开始安装</h4><p>从官方项目库：<a href="https://projects.tigase.org/projects/tigase-server/files">https://projects.tigase.org/projects/tigase-server/files</a> 下载 tigase-server-7.0.4-b3844-dist-max.tar.gz 并解压</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget https://projects.tigase.org/attachments/download/4625/tigase-server-7.0.4-b3844-dist-max.tar.gz</span><br><span class="line"></span><br><span class="line">tar -zxvf tigase-server-7.0.4-b3844-dist-max.tar.gz</span><br><span class="line"></span><br><span class="line">cd tigase-server-7.0.4-b3844-dist-max</span><br></pre></td></tr></table></figure>
+<p>配置 JDK， 修改 JAVA_HOME=”/usr/java/jdk1.8.0_101” // 你的 JDK 路径</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim etc/tigase.conf</span><br></pre></td></tr></table></figure>
+<p>执行数据库初始化脚本，注意配置参数</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./scripts/db-create-mysql.sh</span><br></pre></td></tr></table></figure>
+<p>启动 Tigase</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./scripts/tigase.sh start etc/tigase.conf</span><br></pre></td></tr></table></figure>
+<h4 id="1-3-验证安装"><a href="#1-3-验证安装" class="headerlink" title="1.3 验证安装"></a>1.3 验证安装</h4><p>常用验证工具<code>Spark</code> <code>Psi</code> <code>Pidgin</code> 更多请参考：<a href="https://xmpp.org/software/clients.html">https://xmpp.org/software/clients.html</a></p>
+<h3 id="2-阅读源码"><a href="#2-阅读源码" class="headerlink" title="2. 阅读源码"></a>2. 阅读源码</h3><h4 id="2-1-部署源码"><a href="#2-1-部署源码" class="headerlink" title="2.1 部署源码"></a>2.1 部署源码</h4><p>tigase-server 核心源码</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://repository.tigase.org/git/tigase-server.git</span><br></pre></td></tr></table></figure>
+<p>tigase 依赖工具包</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://repository.tigase.org/git/tigase-utils.git</span><br></pre></td></tr></table></figure>
+<p>tigase 依赖 XML 解析工具</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://repository.tigase.org/git/tigase-xmltools.git</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-执行入口"><a href="#2-2-执行入口" class="headerlink" title="2.2 执行入口"></a>2.2 执行入口</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/tigase-server/src/main/java/tigase/server/XMPPServer.java</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-3-Tigase-的三大模块"><a href="#2-3-Tigase-的三大模块" class="headerlink" title="2.3 Tigase 的三大模块"></a>2.3 Tigase 的三大模块</h4><ul>
+<li><p><strong>component（组件）</strong>是 tigase 服务的主要模块。它使用大量的代码实现了“接收和发送 stanzas（可以理解为各种各样的消息），可配置，并依据配置对大量事件做出应答”，它可以有独立 ip 地址。像 c2s connection manager，s2s connection manager，session manager，XEP-01140 外部组件连接管理，MUC-multi user char rooms；它们都是 tigase 的组件。</p>
+</li>
+<li><p><strong>plug-in（插件）</strong>在大多数情况下是处理特定的 xmpp stanzas 的一小段代码（相对于 components 那种大片大片的代码而言）。它没有自己的 ip 地址，处理完 xmpp stanzas 之后的结果是产生一个新的 xmpp stanzas。plug-ins 被 session manager 或 c2s connection manager 所加载。像 vCard stanza 处理，jabber:iq:register（用来注册新的用户帐号），presence stanza 处理（在线 / 忙碌 / 离开状态处理），jabber:iq:auth（对非 sasl 用户进行认证）等。</p>
+</li>
+<li><p><strong>Connector（连接器）</strong>是用来访问各类数据库的模块，例如访问 ldap/database。有两类 connector：认证数据库（校验用户名密码是否正确）connector 和用户数据库（用户的联系人信息 / 离线消息等）connector。它们是彼此独立的，可以分别连接到不同的数据库。像 JDBC database connector，XMLDB- 嵌入式 database connector，drupal database connector，Libresource database connector 都属于 Connector。</p>
+</li>
+</ul>
+<h4 id="2-4-扩展"><a href="#2-4-扩展" class="headerlink" title="2.4 扩展"></a>2.4 扩展</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 如何编写一个组件</span><br><span class="line">https://my.oschina.net/wjwei113/blog/375326</span><br><span class="line"></span><br><span class="line">// 如何编写一个插件</span><br><span class="line">https://my.oschina.net/wjwei113/blog/375304</span><br></pre></td></tr></table></figure>
+<h3 id="3-需求及规范"><a href="#3-需求及规范" class="headerlink" title="3. 需求及规范"></a>3. 需求及规范</h3><h4 id="3-1-需求"><a href="#3-1-需求" class="headerlink" title="3.1 需求"></a>3.1 需求</h4><ol>
+<li>如何集成 HTTP API， 如何跟 IOS、Android、WEB 三端集成？</li>
+<li>如何集成第三方账户系统？</li>
+<li>区分管理员和普通用户的权限。</li>
+<li>实现过滤、拦截、白名单及黑名单功能。</li>
+<li>实现集群配置、发布订阅功能。</li>
+<li>……</li>
+</ol>
+<h4 id="3-2-规范"><a href="#3-2-规范" class="headerlink" title="3.2 规范"></a>3.2 规范</h4><ol>
+<li>以开源的心态预研、开发，每一个人都是架构师。</li>
+<li>规范报文格式，扩展报文。</li>
+<li>支持功能可配，动态调控。</li>
+<li>……</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>IM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>机器学习之 k 近邻算法</title>
+    <url>/2018/ml02-knn/</url>
+    <content><![CDATA[<p><img src="/static/images/ml02/knnheader.png" alt="kNN algorithm"></p>
+<h4 id="什么是-k-近邻算法"><a href="#什么是-k-近邻算法" class="headerlink" title="什么是 k 近邻算法"></a>什么是 k 近邻算法</h4><p>k 近邻（k-Nearest Neighbor，kNN）是机器学习中相对简单且容易理解的算法，是分类数据最简单有效的算法，它基于实例学习，我们必须用最真实的样本数据对模型进行训练，以便预测出的结果更具参考意义。</p>
+<p>简单地说，<strong>k 近邻算法采用测量不同特征值之间的距离方法进行分类</strong>。这句话简单也不简单。更通俗易懂的理解，所谓“物以类聚，人以群分”，kNN 认为彼此相隔最近的点为一类。周围的对象是什么类别，我就是什么类别。如果你的朋友都开法拉利、保时捷等跑车，那么在 kNN 眼你，你也是有钱人，也开豪车。</p>
+<h4 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h4><p>本文不打算用代码实现一个 k 近邻算法，感兴趣的可以查阅资料研究其实现，但我们必须知道算法的实现步骤。</p>
+<blockquote>
+<p>对未知类型的数据集中的每个点依次执行如下操作：</p>
+<ol>
+<li>计算已知类别数据集中的点与当前点之间的距离；</li>
+<li>按距离递增次序排序；</li>
+<li>选取与当前点距离最小的 k 个点；</li>
+<li>确认前 k 个点出现频率最高的类别作为当前点的预测分类；</li>
+</ol>
+</blockquote>
+<p>接下来，举个栗子带大家更好的理解 kNN 算法。如图，有黄色的管理人才，深蓝色的架构师，以及未知的天蓝色。</p>
+<p><img src="/static/images/ml02/kNNsample.jpg" alt="kNN Sample"></p>
+<p>当我们需要对员工进行技术和管理两个培养方向分类时，可能会考虑到他们的情商、沟通、技能、协作、远见、解决问题等能力。由于人类大脑的限制，我们只能处理三维以下的事务，这里只列举两个特征“情商”和“技能”评分，假设情商分高可作为管理人才来培养，技能分高作为架构师人才来培养。</p>
+<p>我们拿到了七个样本数据，每一个样本带有情商和技能特征，以及对应的标签，他们分布在图中的数据如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">技能</th>
+<th align="center">情商</th>
+<th align="center">培养方向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">43</td>
+<td align="center">92</td>
+<td align="center">管理</td>
+</tr>
+<tr>
+<td align="center">60</td>
+<td align="center">88</td>
+<td align="center">管理</td>
+</tr>
+<tr>
+<td align="center">69</td>
+<td align="center">80</td>
+<td align="center">架构师</td>
+</tr>
+<tr>
+<td align="center">66</td>
+<td align="center">78</td>
+<td align="center">管理</td>
+</tr>
+<tr>
+<td align="center">88</td>
+<td align="center">50</td>
+<td align="center">架构师</td>
+</tr>
+<tr>
+<td align="center">80</td>
+<td align="center">91</td>
+<td align="center">管理</td>
+</tr>
+<tr>
+<td align="center">96</td>
+<td align="center">35</td>
+<td align="center">架构师</td>
+</tr>
+<tr>
+<td align="center">68</td>
+<td align="center">80</td>
+<td align="center">？</td>
+</tr>
+</tbody></table>
+<p>现在的需求是通过天蓝色的特征值预测他更适合的培养方向，按照 kNN 算法的实现步骤，计算出天蓝色特征与样本集的距离。计算二维平面上两点 a(x1,y1) 与 b(x2,y2) 间的欧氏距离<br><img src="/static/images/ml02/EuclideanDistanceGraphic01.jpg" alt="Euclidean Distance"></p>
+<p>按距离升序排序之后结果如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">技能</th>
+<th align="center">情商</th>
+<th align="center">欧式距离↑</th>
+<th align="center">培养方向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">69</td>
+<td align="center">80</td>
+<td align="center">1.0</td>
+<td align="center">架构师</td>
+</tr>
+<tr>
+<td align="center">66</td>
+<td align="center">78</td>
+<td align="center">2.83</td>
+<td align="center">管理</td>
+</tr>
+<tr>
+<td align="center">60</td>
+<td align="center">88</td>
+<td align="center">11.31</td>
+<td align="center">管理</td>
+</tr>
+<tr>
+<td align="center">80</td>
+<td align="center">91</td>
+<td align="center">16.27</td>
+<td align="center">管理</td>
+</tr>
+<tr>
+<td align="center">43</td>
+<td align="center">92</td>
+<td align="center">27.73</td>
+<td align="center">管理</td>
+</tr>
+<tr>
+<td align="center">88</td>
+<td align="center">50</td>
+<td align="center">36.06</td>
+<td align="center">架构师</td>
+</tr>
+<tr>
+<td align="center">96</td>
+<td align="center">35</td>
+<td align="center">53.0</td>
+<td align="center">架构师</td>
+</tr>
+</tbody></table>
+<p>我们得到了预测数据与各个样本间的距离，并按递增排好序。现假设 k = 3，对应的类别分别是“架构师”、“管理”、“管理”，按照算法实现的第 4 步，前 3 个点出现频率最高的类别是“管理”。那么，天蓝色的培养方向应该偏管理。</p>
+<p>实例中 k 值取多少没有定论，如果实例中 k = 1 或 k = 2，那么结果未必是最准确的，这是一个经验值。通常 k 是 3 ≤ k &lt; 20 的整数，并且是奇数，这样避免出现相同票数。</p>
+<p>回过头来看数据分布图，以你为中心画圆，其中圆 c1 也就是 k = 1，距你最近的是“架构师”，圆 c2 则是当 k = 3 的时候，其中三个“管理”，少数服从多数，统计最多的类别依然是“管理”。</p>
+<h4 id="k-近邻算法优缺点"><a href="#k-近邻算法优缺点" class="headerlink" title="k 近邻算法优缺点"></a>k 近邻算法优缺点</h4><p>优点：精度高、对异常值不敏感、无数据输入假定。<br>缺点：kNN 必须保存全部数据集，会占用大量的存储空间，所以<strong>空间负责度高</strong>；kNN 必须对数据集中的每个数据计算距离值，实际使用时非常耗时，所以<strong>计算复杂度高</strong>。</p>
+<h4 id="scikit-learn-简单实现"><a href="#scikit-learn-简单实现" class="headerlink" title="scikit-learn 简单实现"></a>scikit-learn 简单实现</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入 kNN 分类器</span></span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 实例化一个 k 为 3 的 kNN 分类器，默认为 5</span></span><br><span class="line">clf = KNeighborsClassifier(n_neighbors = <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 样本和测试数据集</span></span><br><span class="line">sample = np.array([</span><br><span class="line">    [<span class="number">43</span>,<span class="number">92</span>,<span class="string">&quot;管理&quot;</span>],</span><br><span class="line">    [<span class="number">60</span>,<span class="number">88</span>,<span class="string">&quot;管理&quot;</span>],</span><br><span class="line">    [<span class="number">69</span>,<span class="number">80</span>,<span class="string">&quot;架构师&quot;</span>],</span><br><span class="line">    [<span class="number">66</span>,<span class="number">78</span>,<span class="string">&quot;管理&quot;</span>],</span><br><span class="line">    [<span class="number">88</span>,<span class="number">50</span>,<span class="string">&quot;架构师&quot;</span>],</span><br><span class="line">    [<span class="number">80</span>,<span class="number">91</span>,<span class="string">&quot;管理&quot;</span>],</span><br><span class="line">    [<span class="number">96</span>,<span class="number">35</span>,<span class="string">&quot;架构师&quot;</span>],</span><br><span class="line">    [<span class="number">68</span>,<span class="number">80</span>,<span class="string">&quot;?&quot;</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提取样本特征和标签进行训练</span></span><br><span class="line">X_train, y_train = sample[:-<span class="number">1</span>, :-<span class="number">1</span>], sample[:<span class="number">7</span>, -<span class="number">1</span>:].ravel()</span><br><span class="line">clf.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提取测试集特征进行预测</span></span><br><span class="line">X_test = sample[-<span class="number">1</span>:, :-<span class="number">1</span>]</span><br><span class="line">result = clf.predict(X_test)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> result[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<p>执行输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[Running] python /Users/Fechin/work/ideaproj/td/test-ml/sklearn/knn2.py</span><br><span class="line"></span><br><span class="line">--------------------</span><br><span class="line">管理</span><br><span class="line"></span><br><span class="line">[Done] exited with code=0 in 0.834598 seconds</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+        <tag>算法</tag>
+        <tag>最近邻算法</tag>
+      </tags>
+  </entry>
+</search>

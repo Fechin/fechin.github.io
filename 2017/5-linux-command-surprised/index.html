@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>5 个相见恨晚的 Linux 命令 - 终端之美 - 常也</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="tldr（命令手册）作为一个开发人员，会时常用到终端命令，最让人头疼的是记不住繁琐的参数。用谷哥度娘检索效率低下；通过man查看帮助，超长文章不易阅读。
+tldr命令正是解决这一痛点，tldr是什么,"> 
+    <meta name="author" content="Fechin"> 
+    <link rel="alternative" href="atom.xml" title="常也" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="5 个相见恨晚的 Linux 命令 - 终端之美 - 常也"/>
+    <meta name="twitter:description" content="tldr（命令手册）作为一个开发人员，会时常用到终端命令，最让人头疼的是记不住繁琐的参数。用谷哥度娘检索效率低下；通过man查看帮助，超长文章不易阅读。
+tldr命令正是解决这一痛点，tldr是什么,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="常也"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="5 个相见恨晚的 Linux 命令 - 终端之美 - 常也"/>
+    <meta property="og:description" content="tldr（命令手册）作为一个开发人员，会时常用到终端命令，最让人头疼的是记不住繁琐的参数。用谷哥度娘检索效率低下；通过man查看帮助，超长文章不易阅读。
+tldr命令正是解决这一痛点，tldr是什么,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">常也</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://fech.in"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">5 个相见恨晚的 Linux 命令 - 终端之美</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">5 个相见恨晚的 Linux 命令 - 终端之美</h1>
+        <div class="stuff">
+            <span>十一月 28, 2017</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="tldr（命令手册）"><a href="#tldr（命令手册）" class="headerlink" title="tldr（命令手册）"></a>tldr（命令手册）</h3><p>作为一个开发人员，会时常用到终端命令，最让人头疼的是记不住繁琐的参数。用谷哥度娘检索效率低下；通过<code>man</code>查看帮助，超长文章不易阅读。</p>
+<p><code>tldr</code>命令正是解决这一痛点，<code>tldr</code>是什么？从它的 GitHub 页翻译说“一个简洁的社区驱动的帮助手册”，这是对它最好的解释，根据二八原则给出命令的常用场景示例，简单易读；存放在 Github 上的命令库接受来自五湖四海的朋友提交的内容，社区驱动。</p>
+<p><code>man</code>命令有更详细的说明，单从实用角度讲，<code>tldr</code>才是王者。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">fechinwork <span class="keyword">in</span> ~/Desktop at 11:57:57 λ tldr tar</span><br><span class="line"></span><br><span class="line">tar</span><br><span class="line"></span><br><span class="line">Archiving utility.</span><br><span class="line">Often combined with a compression method, such as gzip or bzip.</span><br><span class="line"></span><br><span class="line">- Create an archive from files:</span><br><span class="line">    tar cf target.tar file1 file2 file3</span><br><span class="line"></span><br><span class="line">- Create a gzipped archive:</span><br><span class="line">    tar czf target.tar.gz file1 file2 file3</span><br><span class="line"></span><br><span class="line">- Extract an archive <span class="keyword">in</span> a target folder:</span><br><span class="line">    tar xf source.tar -C folder</span><br><span class="line"></span><br><span class="line">- Extract a gzipped archive <span class="keyword">in</span> the current directory:</span><br><span class="line">    tar xzf source.tar.gz</span><br><span class="line"></span><br><span class="line">- Extract a bzipped archive <span class="keyword">in</span> the current directory:</span><br><span class="line">    tar xjf source.tar.bz2</span><br><span class="line"></span><br><span class="line">- Create a compressed archive, using archive suffix to determine the compression program:</span><br><span class="line">    tar caf target.tar.xz file1 file2 file3</span><br><span class="line"></span><br><span class="line">- List the contents of a tar file:</span><br><span class="line">    tar tvf source.tar</span><br></pre></td></tr></table></figure>
+
+<p>小提示：支持在进 20 中语言环境下运行，通过<code>tldr --update</code>更新本地命令库。</p>
+<h3 id="tree（树形目录）"><a href="#tree（树形目录）" class="headerlink" title="tree（树形目录）"></a>tree（树形目录）</h3><p>当我们编写项目文档，想更直观的表达项目结构及内容的时候，这个小小的命令就可以派上用场了，它以类似于图像的树状图排列目录和文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">fechinwork <span class="keyword">in</span> ~/work/script/nginx2mysql at 12:43:10 λ tree -L 2</span><br><span class="line">.</span><br><span class="line">├── README.md</span><br><span class="line">├── config.yml</span><br><span class="line">├── libs</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   ├── __init__.pyc</span><br><span class="line">│   ├── nginx_log_parser.py</span><br><span class="line">│   ├── nginx_log_parser.pyc</span><br><span class="line">│   ├── simplemysql.py</span><br><span class="line">│   └── simplemysql.pyc</span><br><span class="line">├── logs</span><br><span class="line">│   └── cdn-2016-06-04.log</span><br><span class="line">├── parser.py</span><br><span class="line">└── requirements.txt</span><br><span class="line"></span><br><span class="line">2 directories, 11 files</span><br></pre></td></tr></table></figure>
+
+<p>小提示：支持定制层级，过滤内容等各种个性化设置。通过<code>tldr tree</code>查看具体使用示例。添加<code>-N</code>参数解决中文乱码问题。</p>
+<h3 id="rlwrap（历史命令）"><a href="#rlwrap（历史命令）" class="headerlink" title="rlwrap（历史命令）"></a>rlwrap（历史命令）</h3><p>经常使用命令的同学一定有习惯，通过上下按键切换历史命令，但是让人头疼的是<code>telnet</code>命令不支持切换，甚至是退格删除，所以时常遇到如下尴尬场面。莫急，<code>rlwrap</code>便是用来解决这一痛点的。</p>
+<p>通过<code>telnet</code>执行 Dubbo 接口：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; telnet 192.168.1.147 23457</span><br><span class="line">&gt; invoke com.yinyuetai.yuan.user.api.UserService.get(1) &gt; ^[[A^[[A^[[A^[[B^[[B</span><br><span class="line"><span class="comment"># 好尴尬~</span></span><br></pre></td></tr></table></figure>
+<p>通过<code>telnet</code>连接 memcached 服务器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; telnet 192.168.1.36 11211 &gt; ^[[A^[[A^[[A^[[B^[[B</span><br><span class="line"><span class="comment"># 好尴尬~</span></span><br></pre></td></tr></table></figure>
+<p>什么是<code>rlwrap</code>？它是基于 readline 库，实现命令行补全和记录的包装命令。如今交互式输入是最基本的需求，Linux 正是通过 readline 这个库来记录用户的操作，实现交互式输入、自动补全、搜索等功能。对于没有支持 readline 操作的命令，<code>rlwrap</code>就是最好的伙伴了。</p>
+<p>用法：在执行<code>telnet</code>命令前加上 rlwrap 命令即可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">fechinwork <span class="keyword">in</span> ~/Documents at 14:43:15 λ</span><br><span class="line">fechinwork <span class="keyword">in</span> ~/Documents at 14:43:41 λ rlwrap telnet 127.0.0.1 6379</span><br><span class="line">Trying 127.0.0.1...</span><br><span class="line">Connected to localhost.</span><br><span class="line">Escape character is <span class="string">&#x27;^]&#x27;</span>.</span><br><span class="line"><span class="built_in">set</span> product alpha</span><br><span class="line">+OK</span><br><span class="line">get prod</span><br><span class="line">$-1</span><br><span class="line">get product</span><br><span class="line"><span class="variable">$5</span></span><br><span class="line">alpha</span><br></pre></td></tr></table></figure>
+<p>小提示：除了<code>telnet</code>还有 Oracle 系列命令需要支持 rlwrap 包装装<code>sqlplus</code>、<code>rman</code>、<code>asmcmd</code><br>快捷别名：<code>alias telnet=&#39;rlwrap telnet&#39;</code></p>
+<h3 id="script（记录会话输出）"><a href="#script（记录会话输出）" class="headerlink" title="script（记录会话输出）"></a>script（记录会话输出）</h3><p>很多时候，为了安全和备份，需要对工作内容进行保存。那么，<code>script</code>命令就是隐藏在终端的记录器，它可以记录终端会话的所有内容，形成文件。对于需要工作留痕的同学来说，<code>script</code>便是良药。<br>如何使用，用<code>script</code>启动它，此时它已经开始记录。完事后用<code>exit</code>退出记录，默认生成了一个叫“typescript”的文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">fechinwork <span class="keyword">in</span> ~ at 13:34:04 λ script</span><br><span class="line">Script started, output file is typescript</span><br><span class="line">fechinwork <span class="keyword">in</span> ~ at 13:34:07 λ <span class="built_in">echo</span> <span class="string">&#x27;导演，开始了吗？&#x27;</span></span><br><span class="line">导演，开始了吗？</span><br><span class="line">fechinwork <span class="keyword">in</span> ~ at 13:34:27 λ <span class="built_in">echo</span> <span class="string">&#x27;你退出自己看咯，略略~&#x27;</span></span><br><span class="line">你退出自己看咯，略略~</span><br><span class="line">fechinwork <span class="keyword">in</span> ~ at 13:34:48 λ <span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line">Script <span class="keyword">done</span>, output file is typescript</span><br><span class="line">fechinwork <span class="keyword">in</span> ~ at 13:34:51 λ cat typescript</span><br><span class="line">Script started on Sat Oct 21 13:34:06 2017</span><br><span class="line">fechinwork <span class="keyword">in</span> ~ at 13:34:07 λ <span class="built_in">echo</span> <span class="string">&#x27;导演，开始了吗？&#x27;</span></span><br><span class="line">导演，开始了吗？</span><br><span class="line">fechinwork <span class="keyword">in</span> ~ at 13:34:27 λ <span class="built_in">echo</span> <span class="string">&#x27;你退出自己看咯，略略~&#x27;</span></span><br><span class="line">你退出自己看咯，略略~</span><br><span class="line">fechinwork <span class="keyword">in</span> ~ at 13:34:48 λ <span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line">Script <span class="keyword">done</span> on Sat Oct 21 13:34:51 2017</span><br></pre></td></tr></table></figure>
+<p>小提示：<code>script</code>可以在什么场景下使用呢？<br>1、我需要把大批量视频推送到 CDN，耗时一晚上，这时通过<code>script</code>记录执行的日志，第二天对没有推送成功的做单独处理。<br>2、别人远程你的服务器或电脑，安全起见<code>script</code>一下。<br>3、与同事协同工作时，自己工作做了一半，交给另一个人来做，此时发给它你的<code>script</code>，让它接着干。<br>……</p>
+<h3 id="autojump（一键直达）"><a href="#autojump（一键直达）" class="headerlink" title="autojump（一键直达）"></a>autojump（一键直达）</h3><p>最后一个压轴神器，也是我用的最多的命令之一。</p>
+<p>相信多数终端用户使用频率最高的命令是<code>cd</code>、<code>ls</code>, 在我不知道切换到哪里的时候不得不<code>ls</code>确认目录名，如此反复，到达想去的目录可能要经历几次甚至十次以上的 cd，经历了多少风雨才找到我的文件。俗话说“不会偷懒的程序员不是好程序员”，如此饱受挫折那是我们的风格，于是有了 autojump 的诞生，它注定不凡。<br>顾名思义，autojump，自动跳转，而不是切换，因为它可以做到一键直达。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fechinwork <span class="keyword">in</span> ~/work/script/xls2sql at 14:27:24 λ j Des</span><br><span class="line">/Users/fechinwork/Desktop</span><br><span class="line">fechinwork <span class="keyword">in</span> ~/Desktop at 14:27:27 λ <span class="built_in">pwd</span></span><br><span class="line">/Users/fechinwork/Desktop</span><br><span class="line">fechinwork <span class="keyword">in</span> ~/Desktop at 14:27:31 λ j Docu</span><br><span class="line">/Users/fechinwork/Documents</span><br><span class="line">fechinwork <span class="keyword">in</span> ~/Documents at 14:27:41 λ <span class="built_in">pwd</span></span><br><span class="line">/Users/fechinwork/Documents</span><br><span class="line">fechinwork <span class="keyword">in</span> ~/Documents at 14:27:44 λ</span><br></pre></td></tr></table></figure>
+<p>小提示：可以通过<code>j -s</code>命令查看它的数据库，以及数据库中的目录权重。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="/static/mp3/Jam%20-%20%E4%B8%83%E6%9C%88%E4%B8%8A.mp3">
+            </audio>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="false"
+        data-ci="a396afe529734b15300f"
+        data-cs="0ae7c1790f9a5cbc2b7339c12a82d58fe58f9567"
+        data-r="fechin.github.io"
+        data-o="Fechin"
+        data-a="Fechin"
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-69833742-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-69833742-2');
+</script>
+<!-- End Google Analytics -->
+
+
+</html>

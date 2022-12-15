@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>机器学习基础 - 常也</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="
+在没接触机器学习之前， 一提起机器学习，就会觉得深奥、难懂、一般人很难入门，貌似是科学家做的事情。真的是这样吗？事实却非如此，它并不要求计算机能像人一样有情感，也不会与计算机探讨人生的意义，更不会,"> 
+    <meta name="author" content="Fechin"> 
+    <link rel="alternative" href="atom.xml" title="常也" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="机器学习基础 - 常也"/>
+    <meta name="twitter:description" content="
+在没接触机器学习之前， 一提起机器学习，就会觉得深奥、难懂、一般人很难入门，貌似是科学家做的事情。真的是这样吗？事实却非如此，它并不要求计算机能像人一样有情感，也不会与计算机探讨人生的意义，更不会,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="常也"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="机器学习基础 - 常也"/>
+    <meta property="og:description" content="
+在没接触机器学习之前， 一提起机器学习，就会觉得深奥、难懂、一般人很难入门，貌似是科学家做的事情。真的是这样吗？事实却非如此，它并不要求计算机能像人一样有情感，也不会与计算机探讨人生的意义，更不会,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">常也</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://fech.in"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">机器学习基础</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">机器学习基础</h1>
+        <div class="stuff">
+            <span>五月 30, 2018</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p><img src="/static/images/ml01-start.jpeg" alt="开始学习机器学习"></p>
+<p>在没接触机器学习之前， 一提起机器学习，就会觉得深奥、难懂、一般人很难入门，貌似是科学家做的事情。真的是这样吗？事实却非如此，它并不要求计算机能像人一样有情感，也不会与计算机探讨人生的意义，更不会对你有非分之想。</p>
+<h4 id="何谓机器学习"><a href="#何谓机器学习" class="headerlink" title="何谓机器学习"></a>何谓机器学习</h4><p>有幸，有机会、有时间接触到大数据和机器学习。机器学习早在 20 世纪 50 年代到 60 年代就属于热烈时期，发展至今，机器学习已经应用于多个领域，远超出我们的想象。比较典型的应用有人脸识别，垃圾邮件过滤、商品推荐、天气预报、预测交通拥堵情况等等。</p>
+<p>我们还可以做更多有趣的事情，比如根据这篇文章最高词频预测文章在讲什么；根据爱好，性格推荐最合适的相亲对象。</p>
+<blockquote>
+<p>真正的有趣必然是你深深陷入了其中，或者你了解世界上的一切奥妙，试图探求世界的本质，或者你天马行空，又勇气可嘉，能用最好的技术去实现最美好的事。</p>
+</blockquote>
+<p>人们很难直接从海量数据获取关键信息，但可以告诉计算机用什么算法，去提炼和预测所需的点。<strong>简单的说，机器学习（Machine learning）就是把无序的数据转换成有用的信息</strong>。</p>
+<h4 id="机器学习算法"><a href="#机器学习算法" class="headerlink" title="机器学习算法"></a>机器学习算法</h4><p><img src="/static/images/ml01/ml_algorithm.jpg" alt="机器学习算法"></p>
+<p>机器学习领域中常用的有 10 几种算法，它们用于分类，回归，聚类，降维，其中分类和回归是监督学习，所谓<strong>监督学习（Supervised Learning），意为必须知道预测什么，即目标变量的分类信息</strong>。举个栗子，我收集了一批数据，数据中包含人体特征和分类标识男 / 女 / 其<br>它，用训练好的算法预测另一批带人体特征的性别分类，确认这批人是男是女。</p>
+<p>与监督学习相对应的是<strong>无监督学习（Unsupervised learning）</strong>，不得而知，它的数据没有类别信息。举个相反的栗子，我收集了一批数据，数据中只包含人体特征，并没有告诉计算机哪些是男，哪些是女，而是让它自己去判断和分类。总结出性别的差异。</p>
+<h4 id="开发步骤"><a href="#开发步骤" class="headerlink" title="开发步骤"></a>开发步骤</h4><p><img src="/static/images/ml01/ml_steps.jpg" alt="开发机器学习应用的步骤"></p>
+<p>开发大多数机器学习的应用通常遵循以下步骤：</p>
+<ol>
+<li>收集数据：可以是多种方法收集数据，如爬虫、数据生成器、公开数据集等。初学及测试算法建议使用公开数据源，具备一定的权威性，准确度高，节省时间，后续文章会有所涉及。</li>
+<li>准备数据：在程序中加载收集的数据，创建方便处理的数据对象，建议转换成 numpy 或 pandas 库支持的数据格式，它们支持灵活的矩阵处理和计算能力。</li>
+<li>分析数据：观察数据是否存在空值和无效内容，如果有条件，建议数据图形化，更直观的看到数据分布。在处理大量特征的复杂数据时，还需要对数据进行降维和归一化操作。</li>
+<li>训练算法：算法是机器学习的核心，相同的数据应用不同的算法会有不同的结果，选择合适的算法至关重要。这一步会把样本数据放到算法里进行训练，使得算法模型具备预测和判断能力。需要注意的是无监督学习没有训练过程。</li>
+<li>测试算法：也叫评估算法，测试算法的效果，算法的成功率、准确率。</li>
+<li>使用算法：将训练的算法模型转换成可执行应用，在实际业务场景中工作。</li>
+</ol>
+<h4 id="技术准备"><a href="#技术准备" class="headerlink" title="技术准备"></a>技术准备</h4><p>Python 是机器学习最受欢迎的语言之一，可以很方便的集成科学计算库、图表库，和其它语言相比，它更像是工具。建议使用 Python 3，Python 2 将在 2020 年停止维护。<a target="_blank" rel="noopener" href="https://anaconda.org/">Anaconda</a> 是用于科学计算相关的 Python 发行版，为了节省时间，建议安装它快速上手，它集成了常用的机器学习相关库，下面几个库在机器学习中很重要，已经被集成在 Anaconda，建议学习一遍。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.numpy.org/">numpy</a>：矩阵计算，多维数组</li>
+<li><a target="_blank" rel="noopener" href="https://www.scipy.org/">scipy</a>：科学工具集</li>
+<li><a target="_blank" rel="noopener" href="https://matplotlib.org/index.html">matplotlib</a>：强大的画图工具库</li>
+<li><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/#">scikit-learn</a>：重点，高效的数据挖掘和数据分析工具，集成了机器学习中大多数算法，可直接使用</li>
+<li><a target="_blank" rel="noopener" href="https://pandas.pydata.org/">pandas</a>：高效地操作大型数据集</li>
+</ul>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="/static/mp3/%E4%B8%A2%E7%81%AB%E8%BD%A6%20-%20%E9%A3%8E%E6%99%AF.mp3">
+            </audio>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="false"
+        data-ci="a396afe529734b15300f"
+        data-cs="0ae7c1790f9a5cbc2b7339c12a82d58fe58f9567"
+        data-r="fechin.github.io"
+        data-o="Fechin"
+        data-a="Fechin"
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-69833742-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-69833742-2');
+</script>
+<!-- End Google Analytics -->
+
+
+</html>

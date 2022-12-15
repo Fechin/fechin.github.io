@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ubuntu 12.10 手动安装 Burg 引导 - 常也</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="一个月前在本本上装过 Burg，也是之前唯一一次在 Ubuntu12.10 安装成功，当时写了一篇文章叫 Ubuntu Burg 引导之打开电脑的那一刻，之后多次重装，再也没有成功过，更新源错误提示,"> 
+    <meta name="author" content="Fechin"> 
+    <link rel="alternative" href="atom.xml" title="常也" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Ubuntu 12.10 手动安装 Burg 引导 - 常也"/>
+    <meta name="twitter:description" content="一个月前在本本上装过 Burg，也是之前唯一一次在 Ubuntu12.10 安装成功，当时写了一篇文章叫 Ubuntu Burg 引导之打开电脑的那一刻，之后多次重装，再也没有成功过，更新源错误提示,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="常也"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="Ubuntu 12.10 手动安装 Burg 引导 - 常也"/>
+    <meta property="og:description" content="一个月前在本本上装过 Burg，也是之前唯一一次在 Ubuntu12.10 安装成功，当时写了一篇文章叫 Ubuntu Burg 引导之打开电脑的那一刻，之后多次重装，再也没有成功过，更新源错误提示,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">常也</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://fech.in"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Ubuntu 12.10 手动安装 Burg 引导</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Ubuntu 12.10 手动安装 Burg 引导</h1>
+        <div class="stuff">
+            <span>十二月 16, 2012</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Burg/" rel="tag">Burg</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%BC%95%E5%AF%BC/" rel="tag">引导</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>一个月前在本本上装过 Burg，也是之前唯一一次在 Ubuntu12.10 安装成功，当时写了一篇文章叫 <a href="https://fech.in/2012/install-burg-on-ubuntu/">Ubuntu Burg 引导之打开电脑的那一刻</a>，之后多次重装，再也没有成功过，更新源错误提示</p>
+<blockquote>
+<p>无法下载“W: 无法下载 <a target="_blank" rel="noopener" href="http://ppa.launchpad.net/n-muench/burg/ubuntu/dists/quantal/main/source/Sources">http://ppa.launchpad.net/n-muench/burg/ubuntu/dists/quantal/main/source/Sources</a> 404 Not Found”</p>
+</blockquote>
+<p>或是用 <code>sudo apt-get install burg burg-themes burg-emu</code> 安装时提示各种找不到。burg 那个性化的设置实在迷人，今天又开始折腾了，百度 Google 找教程无果，看来只能靠自己了。有时候为了实现我们想要的效果就要不择手段，生命不息，折腾不止！既然无法自动更新，那我手动。</p>
+<h3 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h3><p>从 Burg 的源站下载需要的文件，我用的 Ubuntu64 位系统，需要下面这些文件</p>
+<blockquote>
+<p>burg-common_1.98+20100623-1_amd64<br>burg-emu_1.98+20100623-1_amd64<br>burg-pc_1.98+20100623-1_amd64<br>burg-themes-common_1.98+20100623-1_all<br>burg-themes_1.98+20100623-1_all<br>burg_1.98+20100623-1_amd64</p>
+</blockquote>
+<p>记住了，按顺序执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i &#x27;/home/thinkcu/Downloads/burg-common_1.98+20100623-1_amd64.deb&#x27;</span><br><span class="line">sudo dpkg -i &#x27;/home/thinkcu/Downloads/burg-emu_1.98+20100623-1_amd64.deb&#x27;</span><br><span class="line">安装 burg 的时有一个跟 libsdl1.2debian 的依赖关系，直接在终端修复依赖关系：</span><br><span class="line">sudo apt-get -f instal</span><br></pre></td></tr></table></figure>
+<p><img src="/static/images/install-burg-on-ubuntu-manual1.jpg" alt="enter image description here"></p>
+<p>安装第二步， 执行 <code>sudo dpkg -i &#39;/home/thinkcu/Downloads/burg-pc_1.98+20100623-1_amd64.deb&#39;</code> ，会弹出软件包设置的对话框，统统默认，按 Tab 健选定确定，回车即可！<br><img src="/static/images/install-burg-on-ubuntu-manual2.jpg" alt="enter image description here"><br><img src="/static/images/install-burg-on-ubuntu-manual3.jpg" alt="enter image description here"></p>
+<p>安装第三步，同样按顺序执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i &#x27;/home/thinkcu/Downloads/burg-themes-common_1.98+20100623-1_all.deb&#x27;</span><br><span class="line">sudo dpkg -i &#x27;/home/thinkcu/Downloads/burg-themes_1.98+20100623-1_all.deb&#x27;</span><br><span class="line">sudo dpkg -i &#x27;/home/thinkcu/Downloads/burg_1.98+20100623-1_amd64.deb&#x27;</span><br></pre></td></tr></table></figure>
+<p>最后执行 <code>sudo burg-install /dev/sda</code> 或者 <code>sudo burg-install &quot;(hd0)&quot;</code> 设置手动安装 Burg 的 mbr（主引导记录）</p>
+<p><img src="/static/images/install-burg-on-ubuntu-manual4.jpg" alt="enter image description here"></p>
+<p>至此，大功告成，接下来可以用 <code>burg-emu</code> 查看当前配置，设置主题可以看前一个教程！刚开始我是在自己电脑上安装的，安装成功之后再给同学安装了一个，所有图片从同学小张那里截取的。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="https://link.hhtjim.com/163/3374005.mp3">
+            </audio>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="false"
+        data-ci="a396afe529734b15300f"
+        data-cs="0ae7c1790f9a5cbc2b7339c12a82d58fe58f9567"
+        data-r="fechin.github.io"
+        data-o="Fechin"
+        data-a="Fechin"
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-69833742-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-69833742-2');
+</script>
+<!-- End Google Analytics -->
+
+
+</html>

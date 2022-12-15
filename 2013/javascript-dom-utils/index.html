@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>JavaScript 给 DOM 元素相同事件绑定多函数 - 常也</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="给 DOM 元素的同一事件绑定多个处理函数今天，同事问“一个 DOM 元素的同一事件如何绑定多个方法”，为什么这么问，因为在 javascript 中有一个规律，如果某元素的某事件多次赋值，那么只有,"> 
+    <meta name="author" content="Fechin"> 
+    <link rel="alternative" href="atom.xml" title="常也" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="JavaScript 给 DOM 元素相同事件绑定多函数 - 常也"/>
+    <meta name="twitter:description" content="给 DOM 元素的同一事件绑定多个处理函数今天，同事问“一个 DOM 元素的同一事件如何绑定多个方法”，为什么这么问，因为在 javascript 中有一个规律，如果某元素的某事件多次赋值，那么只有,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="常也"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="JavaScript 给 DOM 元素相同事件绑定多函数 - 常也"/>
+    <meta property="og:description" content="给 DOM 元素的同一事件绑定多个处理函数今天，同事问“一个 DOM 元素的同一事件如何绑定多个方法”，为什么这么问，因为在 javascript 中有一个规律，如果某元素的某事件多次赋值，那么只有,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">常也</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://fech.in"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">JavaScript 给 DOM 元素相同事件绑定多函数</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">JavaScript 给 DOM 元素相同事件绑定多函数</h1>
+        <div class="stuff">
+            <span>八月 30, 2013</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="给-DOM-元素的同一事件绑定多个处理函数"><a href="#给-DOM-元素的同一事件绑定多个处理函数" class="headerlink" title="给 DOM 元素的同一事件绑定多个处理函数"></a>给 DOM 元素的同一事件绑定多个处理函数</h3><p>今天，同事问“一个 DOM 元素的同一事件如何绑定多个方法”，为什么这么问，因为在 javascript 中有一个规律，如果某元素的某事件多次赋值，那么只有最后一次赋值生效，如下代码将只弹出”second.”。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">document.body.onclick=function()&#123;</span><br><span class="line">	alert(&quot;first.&quot;);</span><br><span class="line">&#125;;</span><br><span class="line">document.body.onclick=function()&#123;</span><br><span class="line">	alert(&quot;second.&quot;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>说起这个问题，我首先想到的是 jQuery, 它的 <code>bind(type,[data],fn)</code> 方法可以实现同一事件函数叠加的效果，那么， js 如何实现呢？如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 给 DOM 元素的同一事件绑定多个方法</span><br><span class="line"> *</span><br><span class="line"> * @param &#123;Object&#125; obj	DOM 对象</span><br><span class="line"> * @param &#123;Object&#125; type 事件类型</span><br><span class="line"> * @param &#123;Object&#125; fn	处理函数</span><br><span class="line"> */</span><br><span class="line">function addEventFns(_obj,_type,_fn)&#123;</span><br><span class="line">	var oldEvent = _obj[_type];</span><br><span class="line">	if(typeof _obj[_type] == &quot;function&quot;)&#123;</span><br><span class="line">		_obj[_type] = function()&#123;</span><br><span class="line">			oldEvent();</span><br><span class="line">			_fn();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		_obj[_type] = _fn;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 Dom 节点加载完毕之后这样调用 <code>addEventFns(_obj,_type,_fn)</code></p>
+<ul>
+<li>_obj: 需要添加事件的 DOM 对象，比如：<code>document.getElementById(“container”)</code> 或 <code>document.body</code>;</li>
+<li>_type: 事件类型的字符串，比如：<code>onclick</code> 或 <code>onmouseover</code>;</li>
+<li>_fn: 绑定到 DOM 元素的事件上面的处理函数。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">addEventFns(obj,&quot;onclick&quot;,function()&#123;</span><br><span class="line">		alert(&quot;Fired the event.&quot;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="项目中用到的一些工具函数"><a href="#项目中用到的一些工具函数" class="headerlink" title="项目中用到的一些工具函数"></a>项目中用到的一些工具函数</h3><p>公司 xx 项目就失业子系统变更 coding 告一段落，收获颇多，主要涉及校验，和业务的理解，可谓是循序渐进，环环相扣。coding 过程走火入魔算不上，但出入分明。总结几个常用 javascript 校验，菜鸟级别，仅供参考！</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 获取两个时间相差月数</span><br><span class="line"> *</span><br><span class="line"> * @param &#123;Object&#125; start 开始时间 (yyyy-MM)</span><br><span class="line"> * @param &#123;Object&#125; end   结束时间 (yyyy-MM)</span><br><span class="line"> * @return &#123;TypeName&#125;</span><br><span class="line"> */</span><br><span class="line">function getDiffOfMonth(start,end)&#123;</span><br><span class="line">	var diff;</span><br><span class="line">	if(start==&quot;&quot;||end==&quot;&quot;)&#123;</span><br><span class="line">		diff = &quot;&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	var startArr = start.split(&#x27;-&#x27;);</span><br><span class="line">	var endArr = end.split(&#x27;-&#x27;);</span><br><span class="line">	if(startArr[0]==endArr[0])&#123;</span><br><span class="line">		diff = endArr[1]-startArr[1];</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		diff = (endArr[0]-startArr[0])*12+(endArr[1]-startArr[1]);</span><br><span class="line">	&#125;</span><br><span class="line">	return Math.abs(diff)+1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 根据月份区间获取所有月份集合</span><br><span class="line"> *</span><br><span class="line"> * @param &#123;Object&#125; start 开始时间 (yyyy-MM)</span><br><span class="line"> * @param &#123;Object&#125; end   结束时间 (yyyy-MM)</span><br><span class="line"> * @return &#123;TypeName&#125;</span><br><span class="line"> */</span><br><span class="line">function getAllMonth(start, end) &#123;</span><br><span class="line">	var months = new Array(start);</span><br><span class="line">	var month = &quot;&quot;;</span><br><span class="line">	var length = getDiffOfMonth(start, end);</span><br><span class="line">	var start = start.split(&#x27;-&#x27;);</span><br><span class="line">	var end = end.split(&#x27;-&#x27;);</span><br><span class="line">	var temp;</span><br><span class="line">	for ( var i = 0; i &lt; length - 1; i++) &#123;</span><br><span class="line">		temp = new Date(start[0], parseInt(start[1]) + i);</span><br><span class="line">		month = new String(temp.getMonth() + 1).length == 1 ? &quot;0&quot;</span><br><span class="line">				+ (temp.getMonth() + 1) : (temp.getMonth() + 1);</span><br><span class="line">		months.push(temp.getFullYear() + &quot;-&quot; + month);</span><br><span class="line">	&#125;</span><br><span class="line">	return months;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 获取两个时间相差天数</span><br><span class="line"> *</span><br><span class="line"> * @param &#123;Object&#125; start 开始时间 (yyyy-MM-dd)</span><br><span class="line"> * @param &#123;Object&#125; end   结束时间 (yyyy-MM-dd)</span><br><span class="line"> * @return &#123;TypeName&#125;</span><br><span class="line"> */</span><br><span class="line">function getDiffOfDay(start,end)&#123;</span><br><span class="line">	var diff;</span><br><span class="line">	if(start==&quot;&quot;||end==&quot;&quot;)&#123;</span><br><span class="line">		diff = &quot;&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	diff = Math.abs(new Date(start)-new Date(end));</span><br><span class="line">	return diff/(1000*3600*24)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 一次性领取失业保险金明细记录唯一性校验</span><br><span class="line"> * 判重思路：循环数组各元素，如果在该数组出现两次则重复</span><br><span class="line"> * 关键方法：jQuery.inArray(value,array,[fromIndex])</span><br><span class="line"> *</span><br><span class="line"> * @return &#123;TypeName&#125;</span><br><span class="line"> */</span><br><span class="line">function ycxmxUnique() &#123;</span><br><span class="line">	var flag = true;</span><br><span class="line">	var length = $(&quot;[name=&#x27;lx&#x27;]&quot;).last().attr(&quot;id&quot;); // 最后一条明细的 id</span><br><span class="line">	var start = &quot;&quot;;</span><br><span class="line">	var end = &quot;&quot;;</span><br><span class="line">	var tempArr = new Array();</span><br><span class="line"></span><br><span class="line">	// 封装数组</span><br><span class="line">	for ( var i = 1; i &lt;= length; i++) &#123;</span><br><span class="line">		if (typeof ($(&quot;[name=&#x27;ksny&#x27;][id=&quot; + i + &quot;]&quot;).val()) == &quot;undefined&quot;) &#123;</span><br><span class="line">			continue;</span><br><span class="line">		&#125;</span><br><span class="line">		start = $(&quot;[name=&#x27;jsny&#x27;][id=&quot; + i + &quot;]&quot;).val();</span><br><span class="line">		end = $(&quot;[name=&#x27;ksny&#x27;][id=&quot; + i + &quot;]&quot;).val();</span><br><span class="line">		tempArr = tempArr.concat(getAllMonth(start, end));</span><br><span class="line">	&#125;</span><br><span class="line">	tempArr.sort();</span><br><span class="line">	// 判断重复</span><br><span class="line">	for ( var i = 0; i &lt; tempArr.length; i++) &#123;</span><br><span class="line">		if (tempArr[i].length == 7</span><br><span class="line">				&amp;&amp; jQuery.inArray(tempArr[i], tempArr, i + 1) &gt; -1) &#123;</span><br><span class="line">			alert(&quot;一次性返回年月有重复，请重新输入！&quot;);</span><br><span class="line">			flag = false;</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return flag;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="https://link.hhtjim.com/163/27646205.mp3">
+            </audio>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="false"
+        data-ci="a396afe529734b15300f"
+        data-cs="0ae7c1790f9a5cbc2b7339c12a82d58fe58f9567"
+        data-r="fechin.github.io"
+        data-o="Fechin"
+        data-a="Fechin"
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-69833742-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-69833742-2');
+</script>
+<!-- End Google Analytics -->
+
+
+</html>

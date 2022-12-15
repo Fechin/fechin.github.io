@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://fech.in/tags/index.html</loc>
+    
+    <lastmod>2022-12-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fech.in/whoami/index.html</loc>
+    
+    <lastmod>2022-12-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fech.in/2012/install-burg-on-ubuntu/</loc>
+    
+    <lastmod>2022-12-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fech.in/2013/javascript-dom-utils/</loc>
+    
+    <lastmod>2022-12-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fech.in/2018/ml01-overview/</loc>
+    
+    <lastmod>2022-12-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fech.in/2018/pyspark-and-pandas/</loc>
+    
+    <lastmod>2022-12-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fech.in/2016/tigase-pre-research-1/</loc>
+    
+    <lastmod>2022-12-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fech.in/2018/ml02-knn/</loc>
+    
+    <lastmod>2022-12-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fech.in/domain/index.html</loc>
+    
+    <lastmod>2022-12-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fech.in/categories/index.html</loc>
+    
+    <lastmod>2022-12-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fech.in/search/index.html</loc>
+    
+    <lastmod>2022-12-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fech.in/2017/5-linux-command-surprised/</loc>
+    
+    <lastmod>2022-12-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fech.in/2019/convert-excel-to-markdown-table/</loc>
+    
+    <lastmod>2022-12-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fech.in/2018/export-excel-use-template/</loc>
+    
+    <lastmod>2022-12-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fech.in/2012/install-burg-on-ubuntu-manual/</loc>
+    
+    <lastmod>2022-12-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fech.in/404.html</loc>
+    
+    <lastmod>2022-12-15</lastmod>
+    
+  </url>
+  
+
+  <url>
+    <loc>http://fech.in/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  
+  <url>
+    <loc>http://fech.in/tags/Linux/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fech.in/tags/%E5%91%BD%E4%BB%A4/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fech.in/tags/Excel/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fech.in/tags/Markdown/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fech.in/tags/Converter/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fech.in/tags/Table/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fech.in/tags/%E6%96%B9%E6%A1%88/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fech.in/tags/%E5%AF%BC%E5%87%BA/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fech.in/tags/Burg/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fech.in/tags/%E5%BC%95%E5%AF%BC/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fech.in/tags/Ubuntu/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fech.in/tags/JavaScript/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fech.in/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fech.in/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fech.in/tags/Python/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fech.in/tags/%E5%9F%BA%E7%A1%80/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fech.in/tags/Pandas/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fech.in/tags/PySpark/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fech.in/tags/Java/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fech.in/tags/IM/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fech.in/tags/%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fech.in/tags/%E6%9C%80%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+
+  
+  <url>
+    <loc>http://fech.in/categories/Linux/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fech.in/categories/%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fech.in/categories/Java/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fech.in/categories/JavaScript/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fech.in/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fech.in/categories/Python/</loc>
+    <lastmod>2022-12-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+</urlset>
