@@ -1,4 +1,4 @@
-baseURL = 'https://fech.in/blog/'
+baseURL = 'https://fech.in/'
 title = 'My Blog'
 theme = 'PaperMod'
 [pagination]
